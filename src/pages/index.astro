@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="pianokaori | ピアノ教室">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="hero-sub">Piano School</p>
+      <h1 class="hero-title">
+        音楽のある<br />豊かな暮らしを
+      </h1>
+      <p class="hero-text">
+        ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
+        ピアノを弾く喜びをお届けします。
+      </p>
+      <a href="/contact" class="btn btn-primary">お問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section features">
+    <div class="container">
+      <h2 class="section-title">教室の特徴</h2>
+      <p class="section-subtitle">pianokaoriが大切にしていること</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3 class="feature-title">一人ひとりに合わせたレッスン</h3>
+          <p class="feature-text">
+            年齢や経験に応じて、個々のペースに合わせた丁寧な指導を行います。初めてピアノに触れる方から経験者まで、どなたでも安心して通えます。
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎹</div>
+          <h3 class="feature-title">音楽を楽しむ心を育てる</h3>
+          <p class="feature-text">
+            技術だけでなく、音楽を感じる心を大切にしています。弾きたい曲に挑戦しながら、表現する喜びを一緒に見つけていきましょう。
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3 class="feature-title">温かく落ち着いた空間</h3>
+          <p class="feature-text">
+            リラックスして音楽に集中できる、温かみのある教室です。お子さまも大人の方も、のびのびと楽しめる環境を整えています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section intro">
+    <div class="container intro-inner">
+      <div class="intro-content">
+        <h2 class="section-title" style="text-align: left;">ピアノを始めてみませんか？</h2>
+        <p class="intro-text">
+          「ピアノを弾いてみたい」「もう一度ピアノに触れたい」——
+          そんな気持ちを大切に、pianokaoriでは楽しく学べるレッスンをお届けしています。
+        </p>
+        <p class="intro-text">
+          小さなお子さまから大人の方まで、音楽のある毎日を一緒に始めましょう。
+          まずはお気軽にお問い合わせください。
+        </p>
+        <a href="/contact" class="btn btn-outline">お問い合わせはこちら</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding-top: calc(var(--header-height) + 80px);
+    padding-bottom: 80px;
+    background: var(--color-bg-warm);
+    text-align: center;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 36px;
+    line-height: 2;
+  }
+
+  /* Features */
+  .features {
+    background: var(--color-bg);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 12px;
+    background: var(--color-bg-light);
+    transition: transform 0.2s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .feature-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .feature-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  /* Intro */
+  .intro {
+    background: var(--color-bg-warm);
+  }
+
+  .intro-content {
+    max-width: 680px;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+    line-height: 2;
+  }
+
+  .intro-text:last-of-type {
+    margin-bottom: 32px;
+  }
+
+  .sp-only {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: calc(var(--header-height) + 48px);
+      padding-bottom: 56px;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .sp-only {
+      display: inline;
+    }
+
+    .intro-content {
+      text-align: center;
+    }
+
+    .intro-content .section-title {
+      text-align: center !important;
+    }
+  }
+</style>

@@ -1,0 +1,22 @@
+# Environment & secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+credentials.*
+secrets.*
+
+# Dependencies & build artifacts
+node_modules/
+vendor/
+dist/
+build/
+.git/
+
+# Logs & cache
+*.log
+.cache/
+tmp/
+storage/logs/
+storage/framework/cache/

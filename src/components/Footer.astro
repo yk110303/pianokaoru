@@ -1,0 +1,64 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-inner container">
+    <div class="footer-info">
+      <p class="footer-logo">pianokaori</p>
+      <p class="footer-text">ピアノ教室</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="/">トップ</a>
+      <a href="/about">プロフィール</a>
+      <a href="/contact">お問い合わせ</a>
+    </nav>
+    <p class="footer-copy">&copy; {year} pianokaori. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-bg-light);
+    border-top: 1px solid var(--color-border);
+    padding: 48px 0 32px;
+  }
+
+  .footer-inner {
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .footer-nav a {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+</style>

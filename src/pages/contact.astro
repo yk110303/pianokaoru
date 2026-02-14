@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="お問い合わせ | pianokaori" description="pianokaori ピアノ教室へのお問い合わせはこちらのフォームからどうぞ。">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">お問い合わせ</h1>
+      <p class="page-subtitle">レッスンに関するご質問など、お気軽にどうぞ</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="section contact">
+    <div class="container">
+      <div class="form-wrap">
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name" class="form-label">お名前 <span class="required">必須</span></label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="山田 花子" />
+            <p class="form-error" id="name-error"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">メールアドレス <span class="required">必須</span></label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com" />
+            <p class="form-error" id="email-error"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">電話番号</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="090-1234-5678" />
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">お問い合わせ内容 <span class="required">必須</span></label>
+            <textarea id="message" name="message" class="form-input form-textarea" required rows="6" placeholder="レッスンについてのご質問、体験レッスンのご希望など"></textarea>
+            <p class="form-error" id="message-error"></p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">送信する</button>
+          </div>
+        </form>
+
+        <!-- Success -->
+        <div class="form-result success" id="form-success" hidden>
+          <div class="result-icon">✓</div>
+          <h3 class="result-title">送信完了しました</h3>
+          <p class="result-text">
+            お問い合わせありがとうございます。<br />
+            内容を確認のうえ、折り返しご連絡いたします。
+          </p>
+        </div>
+
+        <!-- Error -->
+        <div class="form-result error" id="form-error" hidden>
+          <div class="result-icon">!</div>
+          <h3 class="result-title">送信に失敗しました</h3>
+          <p class="result-text">
+            申し訳ございません。時間を置いて再度お試しください。
+          </p>
+          <button class="btn btn-outline" id="retry-btn">もう一度試す</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding-top: calc(var(--header-height) + 48px);
+    padding-bottom: 48px;
+    background: var(--color-bg-warm);
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+
+  .contact {
+    background: var(--color-bg);
+  }
+
+  .form-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .required {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-left: 4px;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background: var(--color-bg);
+    transition: border-color 0.2s;
+  }
+
+  .form-input::placeholder {
+    color: #bbb;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-input.invalid {
+    border-color: #d94f4f;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .form-error {
+    font-size: 0.8rem;
+    color: #d94f4f;
+    margin-top: 6px;
+    min-height: 1.2em;
+  }
+
+  .form-actions {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .form-actions .btn {
+    min-width: 200px;
+  }
+
+  .form-actions .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Result */
+  .form-result {
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .result-icon {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+  }
+
+  .form-result.success .result-icon {
+    background: #e8f5e9;
+    color: #43a047;
+  }
+
+  .form-result.error .result-icon {
+    background: #fce4ec;
+    color: #d94f4f;
+  }
+
+  .result-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .result-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successEl = document.getElementById('form-success')!;
+  const errorEl = document.getElementById('form-error')!;
+  const retryBtn = document.getElementById('retry-btn')!;
+
+  // TODO: API GatewayのエンドポイントURLに差し替える
+  const API_ENDPOINT = '';
+
+  function validateField(field: HTMLInputElement | HTMLTextAreaElement): boolean {
+    const errorEl = document.getElementById(`${field.id}-error`);
+    let message = '';
+
+    if (field.required && !field.value.trim()) {
+      message = 'この項目は必須です';
+    } else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+      message = '正しいメールアドレスを入力してください';
+    }
+
+    if (errorEl) errorEl.textContent = message;
+    field.classList.toggle('invalid', !!message);
+    return !message;
+  }
+
+  function validateForm(): boolean {
+    const fields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('.form-input[required]');
+    let valid = true;
+    fields.forEach((field) => {
+      if (!validateField(field)) valid = false;
+    });
+    return valid;
+  }
+
+  // Real-time validation
+  form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('.form-input').forEach((field) => {
+    field.addEventListener('blur', () => validateField(field));
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    const data = {
+      name: (document.getElementById('name') as HTMLInputElement).value.trim(),
+      email: (document.getElementById('email') as HTMLInputElement).value.trim(),
+      phone: (document.getElementById('phone') as HTMLInputElement).value.trim(),
+      message: (document.getElementById('message') as HTMLTextAreaElement).value.trim(),
+    };
+
+    try {
+      if (!API_ENDPOINT) {
+        throw new Error('API endpoint is not configured');
+      }
+      const res = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      form.hidden = true;
+      successEl.hidden = false;
+    } catch {
+      form.hidden = true;
+      errorEl.hidden = false;
+    }
+  });
+
+  retryBtn.addEventListener('click', () => {
+    errorEl.hidden = true;
+    form.hidden = false;
+    submitBtn.disabled = false;
+    submitBtn.textContent = '送信する';
+  });
+</script>
