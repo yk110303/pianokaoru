@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="プロフィール | pianokaori" description="pianokaori ピアノ教室の講師紹介、教室の理念・レッスン情報をご紹介します。">
+<Layout title="プロフィール | 渡部かおるピアノ教室" description="渡部かおるピアノ教室の講師紹介・教室の理念をご紹介します。">
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="section-subtitle">Instructor</p>
       <div class="profile-content">
         <div class="profile-text">
-          <h3 class="profile-name">pianokaori</h3>
+          <h3 class="profile-name">渡部かおるピアノ教室</h3>
           <p class="profile-desc">
             幼少よりピアノを始め、音楽大学にてピアノを専攻。
             卒業後はピアノ講師として、幅広い年齢の生徒さんへの指導に携わってきました。
@@ -26,6 +26,7 @@ import Layout from '../layouts/Layout.astro';
           <p class="profile-desc">
             一人ひとりの個性や目標に寄り添い、音楽を通して豊かな時間を過ごしていただけるよう、日々のレッスンに取り組んでいます。
           </p>
+          <p class="profile-badge">親子リズム教室ずむずむ&reg; 認定講師</p>
         </div>
       </div>
     </div>
@@ -62,39 +63,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Lesson Info -->
-  <section class="section lesson">
-    <div class="container">
-      <h2 class="section-title">レッスンについて</h2>
-      <p class="section-subtitle">Lesson</p>
-      <div class="lesson-table-wrap">
-        <table class="lesson-table">
-          <tbody>
-            <tr>
-              <th>対象</th>
-              <td>幼児〜大人の方</td>
-            </tr>
-            <tr>
-              <th>レッスン形態</th>
-              <td>個人レッスン</td>
-            </tr>
-            <tr>
-              <th>レッスン時間</th>
-              <td>1回 30分〜</td>
-            </tr>
-            <tr>
-              <th>レッスン回数</th>
-              <td>月3〜4回</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="lesson-note">
-        ※ レッスン料やスケジュールなど、詳しくはお気軽に<a href="/contact">お問い合わせ</a>ください。
-      </p>
-    </div>
-  </section>
-</Layout>
 
 <style>
   /* Page Header */
@@ -141,6 +109,18 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 16px;
   }
 
+  .profile-badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 16px;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-accent-light);
+    border-radius: 40px;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
   /* Philosophy */
   .philosophy {
     background: var(--color-bg-light);
@@ -171,45 +151,6 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.8;
   }
 
-  /* Lesson */
-  .lesson {
-    background: var(--color-bg);
-  }
-
-  .lesson-table-wrap {
-    max-width: 560px;
-    margin: 0 auto 24px;
-  }
-
-  .lesson-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .lesson-table th,
-  .lesson-table td {
-    padding: 16px 20px;
-    text-align: left;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 0.95rem;
-  }
-
-  .lesson-table th {
-    font-weight: 600;
-    width: 40%;
-    color: var(--color-text);
-  }
-
-  .lesson-table td {
-    color: var(--color-text-light);
-  }
-
-  .lesson-note {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--color-text-light);
-  }
-
   @media (max-width: 768px) {
     .page-title {
       font-size: 1.6rem;
@@ -220,8 +161,16 @@ import Layout from '../layouts/Layout.astro';
       gap: 16px;
     }
 
-    .lesson-table th {
-      width: 35%;
+    .access-item {
+      grid-template-columns: 1fr;
+    }
+
+    .access-label {
+      padding: 14px 16px 8px;
+    }
+
+    .access-value {
+      padding: 8px 16px 14px;
     }
   }
 </style>

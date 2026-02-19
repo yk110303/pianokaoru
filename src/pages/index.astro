@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="pianokaori | ピアノ教室">
+<Layout title="渡部かおるピアノ教室">
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="section features">
     <div class="container">
       <h2 class="section-title">教室の特徴</h2>
-      <p class="section-subtitle">pianokaoriが大切にしていること</p>
+      <p class="section-subtitle">渡部かおるピアノ教室が大切にしていること</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">🎵</div>
@@ -49,6 +49,168 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Lesson -->
+  <section class="section lesson">
+    <div class="container">
+      <h2 class="section-title">レッスン案内</h2>
+      <p class="section-subtitle">あなたのペースに合わせたコースをご用意しています</p>
+
+      <div class="lesson-schedule">
+        <span class="schedule-icon">♩</span>
+        <span class="schedule-text">レッスン曜日：月曜日〜木曜日&ensp;15:00〜19:00</span>
+      </div>
+
+      <div class="lesson-grid">
+        <!-- 通常レッスンコース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h3 class="lesson-card-title">通常レッスンコース</h3>
+            <p class="lesson-card-desc">全ての年齢の方向けのコース</p>
+          </div>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間41回（発表会含む）<br><small>火〜木曜日</small></span>
+              <span class="lesson-price-value">30分 <strong>¥7,000</strong></span>
+            </li>
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間38回（発表会含む）<br><small>月曜日のみ</small></span>
+              <span class="lesson-price-value">30分 <strong>¥6,500</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 中学生以上対象コース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h3 class="lesson-card-title">中学生以上対象コース</h3>
+            <p class="lesson-card-desc">部活動や学業で忙しい方向けのコース</p>
+          </div>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間34回（発表会含む）</span>
+              <span class="lesson-price-value">30分 <strong>¥6,000</strong></span>
+            </li>
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間27回（発表会含む）</span>
+              <span class="lesson-price-value">30分 <strong>¥5,000</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 知育プラスコース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h3 class="lesson-card-title">知育プラスコース</h3>
+            <p class="lesson-card-desc">松田知育ピアノメソッドを取り入れた<br>3歳前後の幼児さん向けのコース</p>
+          </div>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">月2回</span>
+              <span class="lesson-price-value"><strong>¥5,000</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 大人向け単発コース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h3 class="lesson-card-title">大人向け単発コース</h3>
+            <p class="lesson-card-desc">1曲だけでも弾いてみたい、趣味を広げたいなど<br>マイペースに進めたいコース</p>
+          </div>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">1回</span>
+              <span class="lesson-price-value"><strong>¥2,500</strong></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="lesson-note">
+        ※ 通常コース・中学生以上対象コースで40分レッスンをご希望の場合は、各料金にプラス¥1,500となります。
+      </p>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section class="section access">
+    <div class="container">
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">Access</p>
+      <div class="access-inner">
+        <dl class="access-list">
+          <div class="access-item">
+            <dt class="access-label">
+              <span class="access-icon">♩</span>住所
+            </dt>
+            <dd class="access-value">
+              東京都練馬区下石神井5丁目
+              <p class="access-note">※ 正確な住所は非公開です。詳しくはお問い合わせください。</p>
+            </dd>
+          </div>
+          <div class="access-item">
+            <dt class="access-label">
+              <span class="access-icon">♩</span>アクセス
+            </dt>
+            <dd class="access-value">
+              <ul class="access-routes">
+                <li>西武新宿線 上井草駅より徒歩10分</li>
+                <li>西武バス「井草通り」バス停より徒歩3分</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <p class="access-contact">
+          場所の詳細は<a href="/contact">お問い合わせフォーム</a>よりご連絡ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS -->
+  <section class="section sns">
+    <div class="container">
+      <h2 class="section-title">SNS</h2>
+      <p class="section-subtitle">日々のレッスンや教室の様子をお届けしています</p>
+      <div class="sns-grid">
+        <a href="#" class="sns-card">
+          <div class="sns-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="sns-info">
+            <p class="sns-name">Instagram</p>
+            <p class="sns-desc">レッスンの様子や日常を発信中</p>
+          </div>
+          <svg class="sns-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#" class="sns-card">
+          <div class="sns-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <line x1="10" y1="9" x2="8" y2="9"/>
+            </svg>
+          </div>
+          <div class="sns-info">
+            <p class="sns-name">Ameba Blog</p>
+            <p class="sns-desc">教室のブログを更新中</p>
+          </div>
+          <svg class="sns-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Introduction -->
   <section class="section intro">
     <div class="container intro-inner">
@@ -56,7 +218,7 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="section-title" style="text-align: left;">ピアノを始めてみませんか？</h2>
         <p class="intro-text">
           「ピアノを弾いてみたい」「もう一度ピアノに触れたい」——
-          そんな気持ちを大切に、pianokaoriでは楽しく学べるレッスンをお届けしています。
+          そんな気持ちを大切に、渡部かおるピアノ教室では楽しく学べるレッスンをお届けしています。
         </p>
         <p class="intro-text">
           小さなお子さまから大人の方まで、音楽のある毎日を一緒に始めましょう。
@@ -141,6 +303,266 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.8;
   }
 
+  /* Lesson */
+  .lesson {
+    background: var(--color-bg-light);
+  }
+
+  .lesson-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    padding: 14px 28px;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .schedule-icon {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+  }
+
+  .schedule-text {
+    color: var(--color-text);
+  }
+
+  .lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .lesson-card {
+    background: var(--color-bg);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .lesson-card-header {
+    background: var(--color-bg-warm);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .lesson-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .lesson-card-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .lesson-price-list {
+    list-style: none;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lesson-price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .lesson-price-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .lesson-price-label {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .lesson-price-label small {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+  }
+
+  .lesson-price-value {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+
+  .lesson-price-value strong {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+  }
+
+  .lesson-note {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 16px 20px;
+    background: var(--color-bg-warm);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-accent-light);
+  }
+
+  /* SNS */
+  .sns {
+    background: var(--color-bg-warm);
+  }
+
+  .sns-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .sns-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: var(--color-text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .sns-card:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-2px);
+  }
+
+  .sns-icon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg-warm);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sns-info {
+    flex: 1;
+  }
+
+  .sns-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .sns-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+  }
+
+  .sns-arrow {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .sns-card:hover .sns-arrow {
+    opacity: 1;
+  }
+
+  /* Access */
+  .access {
+    background: var(--color-bg-light);
+  }
+
+  .access-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .access-list {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .access-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .access-item:last-child {
+    border-bottom: none;
+  }
+
+  .access-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 20px;
+    background: var(--color-bg-warm);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .access-icon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .access-value {
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .access-note {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--color-accent);
+  }
+
+  .access-routes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .access-routes li::before {
+    content: '・';
+    color: var(--color-accent);
+  }
+
+  .access-contact {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+  }
+
   /* Intro */
   .intro {
     background: var(--color-bg-warm);
@@ -178,6 +600,42 @@ import Layout from '../layouts/Layout.astro';
     .features-grid {
       grid-template-columns: 1fr;
       gap: 20px;
+    }
+
+    .lesson-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .lesson-schedule {
+      font-size: 0.88rem;
+      padding: 12px 20px;
+    }
+
+    .lesson-price-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .lesson-price-value {
+      margin-left: 0;
+    }
+
+    .sns-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .access-item {
+      grid-template-columns: 1fr;
+    }
+
+    .access-label {
+      padding: 14px 16px 8px;
+    }
+
+    .access-value {
+      padding: 8px 16px 14px;
     }
 
     .sp-only {

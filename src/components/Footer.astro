@@ -5,15 +5,34 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="footer-inner container">
     <div class="footer-info">
-      <p class="footer-logo">pianokaori</p>
-      <p class="footer-text">ピアノ教室</p>
+      <p class="footer-logo">渡部かおるピアノ教室</p>
     </div>
     <nav class="footer-nav">
       <a href="/">トップ</a>
       <a href="/about">プロフィール</a>
       <a href="/contact">お問い合わせ</a>
     </nav>
-    <p class="footer-copy">&copy; {year} pianokaori. All rights reserved.</p>
+    <div class="footer-sns">
+      <a href="#" class="footer-sns-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+        Instagram
+      </a>
+      <a href="#" class="footer-sns-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <line x1="10" y1="9" x2="8" y2="9"/>
+        </svg>
+        Ameba Blog
+      </a>
+    </div>
+    <p class="footer-copy">&copy; {year} 渡部かおるピアノ教室. All rights reserved.</p>
   </div>
 </footer>
 
@@ -54,6 +73,30 @@ const year = new Date().getFullYear();
   }
 
   .footer-nav a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-sns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .footer-sns-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .footer-sns-link:hover {
+    border-color: var(--color-accent);
     color: var(--color-accent);
   }
 
