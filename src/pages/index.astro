@@ -552,8 +552,27 @@ import Layout from '../layouts/Layout.astro';
 
   .lesson-card-header {
     background: var(--color-accent);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
     padding: 20px 24px;
     border-bottom: none;
+  }
+
+  .lesson-card:nth-child(1) .lesson-card-header {
+    background-image: url('/images/lesson-01.png');
+  }
+
+  .lesson-card:nth-child(2) .lesson-card-header {
+    background-image: url('/images/lesson-02.png');
+  }
+
+  .lesson-card:nth-child(3) .lesson-card-header {
+    background-image: url('/images/lesson-03.png');
+  }
+
+  .lesson-card:nth-child(4) .lesson-card-header {
+    background-image: url('/images/lesson-04.png');
   }
 
   .lesson-card-title {
@@ -618,7 +637,7 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-text-light);
     text-align: center;
     padding: 16px 20px;
-    background: var(--color-bg-warm);
+    background: #fff;
     border-radius: 8px;
     border-left: 3px solid var(--color-accent-light);
   }
