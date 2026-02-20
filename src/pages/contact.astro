@@ -11,10 +11,51 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Contact Form -->
+  <!-- Contact Methods -->
   <section class="section contact">
     <div class="container">
-      <div class="form-wrap">
+      <div class="contact-methods">
+
+        <!-- LINE -->
+        <div class="contact-method" id="line">
+          <div class="method-header method-header--line">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.558 5.527 4.001 7.245L5 21.5l3.13-1.65C9.3 20.27 10.62 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm-3.5 11.5h-1.25A.25.25 0 0 1 7 13.25v-4.5A.25.25 0 0 1 7.25 8.5h1.25v5zm1.75 0V8.5h1.25l2 3.25V8.5H14.75v5H13.5l-2-3.25v3.25H10.25zm7 0H15v-5h2.75v1.25h-1.5v.75h1.5V11.5h-1.5v.75h1.5V13.5z"/>
+            </svg>
+            <h2 class="method-title">LINEでのお問い合わせ</h2>
+          </div>
+          <div class="method-body">
+            <p class="method-desc">LINEからお気軽にメッセージをお送りください。</p>
+            <div class="line-qr">
+              <!-- TODO: QRコード画像を配置 -->
+              <div class="line-qr-placeholder">QRコード</div>
+            </div>
+            <a href="#" class="btn btn-line method-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.558 5.527 4.001 7.245L5 21.5l3.13-1.65C9.3 20.27 10.62 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm-3.5 11.5h-1.25A.25.25 0 0 1 7 13.25v-4.5A.25.25 0 0 1 7.25 8.5h1.25v5zm1.75 0V8.5h1.25l2 3.25V8.5H14.75v5H13.5l-2-3.25v3.25H10.25zm7 0H15v-5h2.75v1.25h-1.5v.75h1.5V11.5h-1.5v.75h1.5V13.5z"/>
+              </svg>
+              LINEを開く
+            </a>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="contact-divider">
+          <span>または</span>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-method">
+          <div class="method-header method-header--form">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <h2 class="method-title">メールフォーム</h2>
+          </div>
+          <div class="method-body">
+            <p class="method-desc">以下のフォームに必要事項をご記入のうえ、送信してください。</p>
+            <div class="form-wrap">
         <form id="contact-form" novalidate>
           <div class="form-group">
             <label for="name" class="form-label">お名前 <span class="required">必須</span></label>
@@ -63,6 +104,10 @@ import Layout from '../layouts/Layout.astro';
           </p>
           <button class="btn btn-outline" id="retry-btn">もう一度試す</button>
         </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -92,9 +137,95 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-bg);
   }
 
-  .form-wrap {
-    max-width: 600px;
+  .contact-methods {
+    max-width: 640px;
     margin: 0 auto;
+  }
+
+  .contact-method {
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+
+  .method-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 28px;
+    color: #fff;
+  }
+
+  .method-header--line {
+    background: #06C755;
+  }
+
+  .method-header--form {
+    background: var(--color-accent);
+  }
+
+  .method-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .method-body {
+    padding: 28px;
+    background: var(--color-bg);
+  }
+
+  .method-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+
+  .line-qr {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .line-qr-placeholder {
+    width: 160px;
+    height: 160px;
+    border: 2px dashed var(--color-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  .method-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    margin: 28px 0;
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+  }
+
+  .contact-divider::before,
+  .contact-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .form-wrap {
+    max-width: 100%;
   }
 
   .form-group {

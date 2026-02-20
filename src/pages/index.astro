@@ -3,6 +3,21 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="渡部かおるピアノ教室">
+  <!-- Loader -->
+  <script is:inline>
+    if (sessionStorage.getItem('home-visited')) {
+      document.documentElement.classList.add('loader-skip');
+    }
+  </script>
+  <div id="loader" aria-hidden="true">
+    <div class="loader-notes">
+      <span class="note n1">♩</span>
+      <span class="note n2">♪</span>
+      <span class="note n3">♫</span>
+      <span class="note n4">♬</span>
+    </div>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
@@ -14,7 +29,71 @@ import Layout from '../layouts/Layout.astro';
         ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
         ピアノを弾く喜びをお届けします。
       </p>
-      <a href="/contact" class="btn btn-primary">お問い合わせ</a>
+      <div class="hero-buttons">
+        <a href="/contact" class="btn btn-primary">お問い合わせ</a>
+        <a href="/contact#line" class="btn btn-line">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.558 5.527 4.001 7.245L5 21.5l3.13-1.65C9.3 20.27 10.62 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm-3.5 11.5h-1.25A.25.25 0 0 1 7 13.25v-4.5A.25.25 0 0 1 7.25 8.5h1.25v5zm1.75 0V8.5h1.25l2 3.25V8.5H14.75v5H13.5l-2-3.25v3.25H10.25zm7 0H15v-5h2.75v1.25h-1.5v.75h1.5V11.5h-1.5v.75h1.5V13.5z"/>
+          </svg>
+          LINEでのお問い合わせ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about">
+    <div class="container">
+      <h2 class="section-title">渡部かおるピアノ教室について</h2>
+      <p class="section-subtitle">About</p>
+
+      <div class="about-profile">
+        <div class="profile-content">
+          <p class="profile-desc">
+            幼少よりピアノを始め、音楽大学にてピアノを専攻。
+            卒業後はピアノ講師として、幅広い年齢の生徒さんへの指導に携わってきました。
+          </p>
+          <p class="profile-desc">
+            一人ひとりの個性や目標に寄り添い、音楽を通して豊かな時間を過ごしていただけるよう、日々のレッスンに取り組んでいます。
+          </p>
+          <p class="profile-badge">親子リズム教室ずむずむ&reg; 認定講師</p>
+        </div>
+      </div>
+
+      <div class="about-philosophy">
+        <div class="philosophy-list">
+          <div class="philosophy-item">
+            <span class="philosophy-num">01</span>
+            <div class="philosophy-body">
+              <h4 class="philosophy-card-title">音楽を楽しむことを第一に</h4>
+              <p class="philosophy-card-text">
+                ピアノを弾くことが「楽しい」と思える時間を大切にしています。
+                楽しさの中で自然と技術が身につくレッスンを目指しています。
+              </p>
+            </div>
+          </div>
+          <div class="philosophy-item">
+            <span class="philosophy-num">02</span>
+            <div class="philosophy-body">
+              <h4 class="philosophy-card-title">一人ひとりのペースを尊重</h4>
+              <p class="philosophy-card-text">
+                上達のスピードや目標は人それぞれ。
+                生徒さん一人ひとりに合わせたカリキュラムで、無理なく着実にステップアップできるよう支援します。
+              </p>
+            </div>
+          </div>
+          <div class="philosophy-item">
+            <span class="philosophy-num">03</span>
+            <div class="philosophy-body">
+              <h4 class="philosophy-card-title">音楽が生活の一部になるように</h4>
+              <p class="philosophy-card-text">
+                レッスンの時間だけでなく、日常の中に音楽がある暮らし。
+                ピアノを通して、心豊かな毎日を送るお手伝いをしたいと考えています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -25,21 +104,27 @@ import Layout from '../layouts/Layout.astro';
       <p class="section-subtitle">渡部かおるピアノ教室が大切にしていること</p>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">🎵</div>
+          <div class="feature-icon">
+            <img src="/images/feature-lesson.png" alt="" aria-hidden="true" />
+          </div>
           <h3 class="feature-title">一人ひとりに合わせたレッスン</h3>
           <p class="feature-text">
             年齢や経験に応じて、個々のペースに合わせた丁寧な指導を行います。初めてピアノに触れる方から経験者まで、どなたでも安心して通えます。
           </p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🎹</div>
+          <div class="feature-icon">
+            <img src="/images/feature-music.png" alt="" aria-hidden="true" />
+          </div>
           <h3 class="feature-title">音楽を楽しむ心を育てる</h3>
           <p class="feature-text">
             技術だけでなく、音楽を感じる心を大切にしています。弾きたい曲に挑戦しながら、表現する喜びを一緒に見つけていきましょう。
           </p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">✨</div>
+          <div class="feature-icon">
+            <img src="/images/feature-room.png" alt="" aria-hidden="true" />
+          </div>
           <h3 class="feature-title">温かく落ち着いた空間</h3>
           <p class="feature-text">
             リラックスして音楽に集中できる、温かみのある教室です。お子さまも大人の方も、のびのびと楽しめる環境を整えています。
@@ -56,7 +141,6 @@ import Layout from '../layouts/Layout.astro';
       <p class="section-subtitle">あなたのペースに合わせたコースをご用意しています</p>
 
       <div class="lesson-schedule">
-        <span class="schedule-icon">♩</span>
         <span class="schedule-text">レッスン曜日：月曜日〜木曜日&ensp;15:00〜19:00</span>
       </div>
 
@@ -132,41 +216,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Access -->
-  <section class="section access">
-    <div class="container">
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">Access</p>
-      <div class="access-inner">
-        <dl class="access-list">
-          <div class="access-item">
-            <dt class="access-label">
-              <span class="access-icon">♩</span>住所
-            </dt>
-            <dd class="access-value">
-              東京都練馬区下石神井5丁目
-              <p class="access-note">※ 正確な住所は非公開です。詳しくはお問い合わせください。</p>
-            </dd>
-          </div>
-          <div class="access-item">
-            <dt class="access-label">
-              <span class="access-icon">♩</span>アクセス
-            </dt>
-            <dd class="access-value">
-              <ul class="access-routes">
-                <li>西武新宿線 上井草駅より徒歩10分</li>
-                <li>西武バス「井草通り」バス停より徒歩3分</li>
-              </ul>
-            </dd>
-          </div>
-        </dl>
-        <p class="access-contact">
-          場所の詳細は<a href="/contact">お問い合わせフォーム</a>よりご連絡ください。
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- SNS -->
   <section class="section sns">
     <div class="container">
@@ -211,11 +260,45 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Access -->
+  <section class="section access">
+    <div class="container">
+      <h2 class="section-title">アクセス</h2>
+      <p class="section-subtitle">Access</p>
+      <div class="access-inner">
+        <dl class="access-list">
+          <div class="access-item">
+            <dt class="access-label">
+              住所
+            </dt>
+            <dd class="access-value">
+              東京都練馬区下石神井5丁目
+            </dd>
+          </div>
+          <div class="access-item">
+            <dt class="access-label">
+              アクセス
+            </dt>
+            <dd class="access-value">
+              <ul class="access-routes">
+                <li>西武新宿線 上井草駅より徒歩10分</li>
+                <li>西武バス「井草通り」バス停より徒歩3分</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <p class="access-contact">
+          詳しくは<a href="/contact">お問い合わせフォーム</a>よりご連絡ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Introduction -->
   <section class="section intro">
-    <div class="container intro-inner">
+    <div class="container">
       <div class="intro-content">
-        <h2 class="section-title" style="text-align: left;">ピアノを始めてみませんか？</h2>
+        <h2 class="section-title">ピアノを始めてみませんか？</h2>
         <p class="intro-text">
           「ピアノを弾いてみたい」「もう一度ピアノに触れたい」——
           そんな気持ちを大切に、渡部かおるピアノ教室では楽しく学べるレッスンをお届けしています。
@@ -224,19 +307,57 @@ import Layout from '../layouts/Layout.astro';
           小さなお子さまから大人の方まで、音楽のある毎日を一緒に始めましょう。
           まずはお気軽にお問い合わせください。
         </p>
-        <a href="/contact" class="btn btn-outline">お問い合わせはこちら</a>
+        <div class="intro-buttons">
+          <a href="/contact" class="btn btn-outline">お問い合わせはこちら</a>
+          <a href="/contact#line" class="btn btn-line">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.558 5.527 4.001 7.245L5 21.5l3.13-1.65C9.3 20.27 10.62 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm-3.5 11.5h-1.25A.25.25 0 0 1 7 13.25v-4.5A.25.25 0 0 1 7.25 8.5h1.25v5zm1.75 0V8.5h1.25l2 3.25V8.5H14.75v5H13.5l-2-3.25v3.25H10.25zm7 0H15v-5h2.75v1.25h-1.5v.75h1.5V11.5h-1.5v.75h1.5V13.5z"/>
+            </svg>
+            LINEでのお問い合わせ
+          </a>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const loader = document.getElementById('loader');
+  if (!loader) {
+    // do nothing
+  } else if (sessionStorage.getItem('home-visited')) {
+    loader.classList.add('hidden');
+  } else {
+    sessionStorage.setItem('home-visited', '1');
+    document.body.style.overflow = 'hidden';
+
+    // アニメーション完了（最後のnote: delay 0.21s + duration 0.45s = 0.66s）
+    // + 少し見せる時間を加えてフェードアウト
+    setTimeout(() => {
+      loader.classList.add('fade-out');
+      loader.addEventListener('transitionend', () => {
+        loader.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, { once: true });
+    }, 1200);
+  }
+</script>
 
 <style>
   /* Hero */
   .hero {
     padding-top: calc(var(--header-height) + 80px);
     padding-bottom: 80px;
-    background: var(--color-bg-warm);
+    background: linear-gradient(rgba(255, 248, 244, 0.75), rgba(255, 248, 244, 0.75)), url('/images/catch-bg.jpg') center / cover no-repeat;
     text-align: center;
+  }
+
+  .hero-buttons,
+  .intro-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
   }
 
   .hero-sub {
@@ -263,6 +384,85 @@ import Layout from '../layouts/Layout.astro';
     line-height: 2;
   }
 
+  /* About */
+  .about {
+    background: var(--color-bg);
+  }
+
+  .about-profile {
+    margin-bottom: 64px;
+  }
+
+  .profile-content {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .profile-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 2;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .profile-badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 16px;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-accent-light);
+    border-radius: 40px;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .philosophy-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .philosophy-item {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .philosophy-item:last-child {
+    border-bottom: none;
+  }
+
+  .philosophy-num {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    line-height: 1;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+    min-width: 56px;
+  }
+
+  .philosophy-body {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .philosophy-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .philosophy-card-text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
   /* Features */
   .features {
     background: var(--color-bg);
@@ -287,8 +487,15 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .feature-icon {
-    font-size: 2rem;
     margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .feature-icon img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
   }
 
   .feature-title {
@@ -315,7 +522,7 @@ import Layout from '../layouts/Layout.astro';
     gap: 8px;
     margin-bottom: 48px;
     padding: 14px 28px;
-    background: var(--color-bg-warm);
+    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: 40px;
     width: fit-content;
@@ -325,18 +532,13 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 500;
   }
 
-  .schedule-icon {
-    color: var(--color-accent);
-    font-size: 1.1rem;
-  }
-
   .schedule-text {
     color: var(--color-text);
   }
 
   .lesson-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     margin-bottom: 24px;
   }
@@ -349,21 +551,21 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .lesson-card-header {
-    background: var(--color-bg-warm);
+    background: var(--color-accent);
     padding: 20px 24px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: none;
   }
 
   .lesson-card-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: #fff;
     margin-bottom: 4px;
   }
 
   .lesson-card-desc {
     font-size: 0.82rem;
-    color: var(--color-text-light);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
   }
 
@@ -423,7 +625,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* SNS */
   .sns {
-    background: var(--color-bg-warm);
+    background: var(--color-bg-warm) url('/images/sns-bg.png') center / cover no-repeat;
   }
 
   .sns-grid {
@@ -522,9 +724,10 @@ import Layout from '../layouts/Layout.astro';
     align-items: flex-start;
     gap: 6px;
     padding: 20px;
-    background: var(--color-bg-warm);
+    background: var(--color-accent);
     font-weight: 600;
     font-size: 0.9rem;
+    color: #fff;
   }
 
   .access-icon {
@@ -537,6 +740,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.9rem;
     color: var(--color-text-light);
     line-height: 1.8;
+    background: #fff;
   }
 
   .access-note {
@@ -565,11 +769,13 @@ import Layout from '../layouts/Layout.astro';
 
   /* Intro */
   .intro {
-    background: var(--color-bg-warm);
+    background: #fff;
   }
 
   .intro-content {
     max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .intro-text {
@@ -581,6 +787,53 @@ import Layout from '../layouts/Layout.astro';
 
   .intro-text:last-of-type {
     margin-bottom: 32px;
+  }
+
+  /* Loader */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: #fdf8f5;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+  }
+
+  #loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  #loader.hidden,
+  :global(.loader-skip) #loader {
+    display: none;
+  }
+
+  .loader-notes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .note {
+    font-size: 3rem;
+    color: var(--color-accent);
+    display: inline-block;
+    animation: alignNote 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-fill-mode: both;
+  }
+
+  .note.n1 { --offset: -28px; animation-delay: 0s; }
+  .note.n2 { --offset: 22px;  animation-delay: 0.12s; }
+  .note.n3 { --offset: -16px; animation-delay: 0.24s; }
+  .note.n4 { --offset: 24px;  animation-delay: 0.36s; }
+
+  @keyframes alignNote {
+    from { transform: translateY(var(--offset)); opacity: 0.5; }
+    to   { transform: translateY(0);             opacity: 1; }
   }
 
   .sp-only {
@@ -595,6 +848,15 @@ import Layout from '../layouts/Layout.astro';
 
     .hero-title {
       font-size: 1.8rem;
+    }
+
+    .philosophy-item {
+      gap: 24px;
+    }
+
+    .philosophy-num {
+      font-size: 2rem;
+      min-width: 40px;
     }
 
     .features-grid {
@@ -646,8 +908,5 @@ import Layout from '../layouts/Layout.astro';
       text-align: center;
     }
 
-    .intro-content .section-title {
-      text-align: center !important;
-    }
   }
 </style>

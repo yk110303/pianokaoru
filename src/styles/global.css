@@ -68,6 +68,20 @@ a:hover {
   text-align: center;
   margin-bottom: 12px;
   letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
 }
 
 .section-subtitle {
@@ -115,6 +129,19 @@ a:hover {
   color: #fff;
 }
 
+.btn-line {
+  background-color: #06C755;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-line:hover {
+  background-color: #05b34c;
+  color: #fff;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .section {
@@ -126,6 +153,6 @@ a:hover {
   }
 
   .container {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 }

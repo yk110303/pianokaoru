@@ -2,10 +2,11 @@
 const currentPath = Astro.url.pathname;
 const navItems = [
   { href: '/', label: 'トップ' },
-  { href: '/about', label: 'プロフィール' },
   { href: '/contact', label: 'お問い合わせ' },
 ];
 ---
+
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
 <header class="header">
   <div class="header-inner container">
@@ -116,7 +117,27 @@ const navItems = [
     transition: transform 0.3s, opacity 0.3s;
   }
 
+  .nav-overlay {
+    display: none;
+  }
+
   @media (max-width: 768px) {
+    .nav-overlay {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .nav-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     .menu-toggle {
       display: flex;
     }
@@ -162,10 +183,30 @@ const navItems = [
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
+  const overlay = document.getElementById('nav-overlay');
+
+  function openMenu() {
+    nav?.classList.add('open');
+    overlay?.classList.add('open');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'メニューを閉じる');
   }
+
+  function closeMenu() {
+    nav?.classList.remove('open');
+    overlay?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'メニューを開く');
+  }
+
+  toggle?.addEventListener('click', () => {
+    nav?.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  overlay?.addEventListener('click', closeMenu);
+
+  // ナビリンクをタップしたら閉じる
+  nav?.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
 </script>
