@@ -20,7 +20,7 @@
 src/
   layouts/Layout.astro    # 共通HTMLシェル（head, fonts, Header/Footer）
   components/             # Header.astro, Footer.astro
-  pages/                  # index.astro, about.astro, contact.astro
+  pages/                  # index.astro, contact.astro
   styles/global.css       # グローバルスタイル
 lambda/
   contact.mjs             # お問い合わせ用Lambda関数（SES送信）
@@ -34,6 +34,8 @@ public/                   # 静的アセット
 - CSS変数は `src/styles/global.css` の `:root` で定義
 
 ## 注意事項
-- お問い合わせフォームの `API_ENDPOINT` は `contact.astro` 内で設定（現在は空文字）
+- お問い合わせページはLINEとメールフォームの2択（`contact.astro`）
+  - LINEのQRコード画像・URLは未設定（TODO）
+  - メールフォームの `API_ENDPOINT` は `contact.astro` 内で設定（現在は空文字）
 - Lambda関数のAWSデプロイ手順は `lambda/contact.mjs` のコメントに記載
 - サイトの言語は日本語（`lang="ja"`）
