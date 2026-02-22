@@ -21,10 +21,14 @@ import Layout from '../layouts/Layout.astro';
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
-      <p class="hero-sub">Piano School</p>
-      <h1 class="hero-title">
-        音楽のある<br />豊かな暮らしを
-      </h1>
+      <div class="hero-frame">
+        <div class="hero-frame-line" aria-hidden="true"><span class="hero-frame-note">♩</span></div>
+        <p class="hero-sub">Piano School</p>
+        <h1 class="hero-title">
+          音楽のある<br />豊かな暮らしを
+        </h1>
+        <div class="hero-frame-line" aria-hidden="true"><span class="hero-frame-note">♬</span></div>
+      </div>
       <p class="hero-text">
         ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
         ピアノを弾く喜びをお届けします。
@@ -38,6 +42,11 @@ import Layout from '../layouts/Layout.astro';
           LINEでのお問い合わせ
         </a>
       </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 64" preserveAspectRatio="none">
+        <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#ffffff"/>
+      </svg>
     </div>
   </section>
 
@@ -151,6 +160,7 @@ import Layout from '../layouts/Layout.astro';
             <h3 class="lesson-card-title">通常レッスンコース</h3>
             <p class="lesson-card-desc">全ての年齢の方向けのコース</p>
           </div>
+          <p class="lesson-card-detail">バイエルやブルグミュラーなどの基礎教材から、弾いてみたい曲まで幅広く対応します。初めての方はもちろん、久しぶりに再開したい方も安心してスタートできます。年1回の発表会で、目標を持って取り組めます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間41回（発表会含む）<br><small>火〜木曜日</small></span>
@@ -169,6 +179,7 @@ import Layout from '../layouts/Layout.astro';
             <h3 class="lesson-card-title">中学生以上対象コース</h3>
             <p class="lesson-card-desc">部活動や学業で忙しい方向けのコース</p>
           </div>
+          <p class="lesson-card-detail">部活や定期テストなど、忙しいスケジュールに合わせてレッスン回数を選べます。音楽を続けたいけれど通うのが難しいという方も、無理なく長く続けられるように設計されたコースです。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間34回（発表会含む）</span>
@@ -187,6 +198,7 @@ import Layout from '../layouts/Layout.astro';
             <h3 class="lesson-card-title">知育プラスコース</h3>
             <p class="lesson-card-desc">松田知育ピアノメソッドを取り入れた<br>3歳前後の幼児さん向けのコース</p>
           </div>
+          <p class="lesson-card-detail">音感・リズム感・集中力を楽しみながら育てる松田知育ピアノメソッドを採用。ピアノを通じてお子さまの心と知性の成長をやさしくサポートします。親子で一緒に音楽の楽しさを体験できます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">月2回</span>
@@ -201,6 +213,7 @@ import Layout from '../layouts/Layout.astro';
             <h3 class="lesson-card-title">大人向け単発コース</h3>
             <p class="lesson-card-desc">1曲だけでも弾いてみたい、趣味を広げたいなど<br>マイペースに進めたいコース</p>
           </div>
+          <p class="lesson-card-detail">「あの曲を弾いてみたい」という一つの目標から気軽に始められます。定期的な通学が難しい方や、まずは体験してみたい方にもぴったりです。お好きなタイミングでご予約いただけます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">1回</span>
@@ -346,8 +359,9 @@ import Layout from '../layouts/Layout.astro';
 <style>
   /* Hero */
   .hero {
+    position: relative;
     padding-top: calc(var(--header-height) + 80px);
-    padding-bottom: 80px;
+    padding-bottom: 120px;
     background: linear-gradient(rgba(255, 248, 244, 0.75), rgba(255, 248, 244, 0.75)), url('/images/catch-bg.jpg') center / cover no-repeat;
     text-align: center;
   }
@@ -382,6 +396,48 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-text-light);
     margin-bottom: 36px;
     line-height: 2;
+  }
+
+  .hero-frame {
+    margin-bottom: 24px;
+  }
+
+  .hero-frame-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-accent);
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+
+  .hero-frame-line::before,
+  .hero-frame-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.55;
+  }
+
+  .hero-frame-note {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 0;
+  }
+
+  .hero-wave svg {
+    display: block;
+    width: 100%;
+    height: 64px;
   }
 
   /* About */
@@ -551,28 +607,33 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .lesson-card-header {
-    background: var(--color-accent);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
+    background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
     padding: 20px 24px;
     border-bottom: none;
   }
 
   .lesson-card:nth-child(1) .lesson-card-header {
-    background-image: url('/images/lesson-01.png');
+    background:
+      url('/images/lesson-01.png') no-repeat right center / auto 100%,
+      linear-gradient(to right, var(--color-accent), var(--color-accent-light));
   }
 
   .lesson-card:nth-child(2) .lesson-card-header {
-    background-image: url('/images/lesson-02.png');
+    background:
+      url('/images/lesson-02.png') no-repeat right center / auto 100%,
+      linear-gradient(to right, var(--color-accent), var(--color-accent-light));
   }
 
   .lesson-card:nth-child(3) .lesson-card-header {
-    background-image: url('/images/lesson-03.png');
+    background:
+      url('/images/lesson-03.png') no-repeat right center / auto 100%,
+      linear-gradient(to right, var(--color-accent), var(--color-accent-light));
   }
 
   .lesson-card:nth-child(4) .lesson-card-header {
-    background-image: url('/images/lesson-04.png');
+    background:
+      url('/images/lesson-04.png') no-repeat right center / auto 100%,
+      linear-gradient(to right, var(--color-accent), var(--color-accent-light));
   }
 
   .lesson-card-title {
@@ -586,6 +647,14 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
+  }
+
+  .lesson-card-detail {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--color-border);
   }
 
   .lesson-price-list {
@@ -862,11 +931,19 @@ import Layout from '../layouts/Layout.astro';
   @media (max-width: 768px) {
     .hero {
       padding-top: calc(var(--header-height) + 48px);
-      padding-bottom: 56px;
+      padding-bottom: 96px;
     }
 
     .hero-title {
       font-size: 1.8rem;
+    }
+
+    .hero-frame-line {
+      max-width: 280px;
+    }
+
+    .hero-wave svg {
+      height: 48px;
     }
 
     .philosophy-item {
