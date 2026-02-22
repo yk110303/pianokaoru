@@ -6,11 +6,13 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  bodyClass?: string;
 }
 
 const {
   title,
   description = '渡部かおるピアノ教室 - 音楽のある豊かな暮らしを',
+  bodyClass,
 } = Astro.props;
 ---
 
@@ -29,7 +31,7 @@ const {
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
+  <body class={bodyClass}>
     <Header />
     <main>
       <slot />

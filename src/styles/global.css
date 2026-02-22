@@ -143,6 +143,12 @@ a:hover {
 }
 
 /* ===== Responsive ===== */
+@media (min-width: 769px) {
+  :root {
+    --header-height: 148px; /* 60px padding top + ~28px logo + 60px padding bottom */
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 56px 0;

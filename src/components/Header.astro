@@ -9,7 +9,7 @@ const navItems = [
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
 <header class="header">
-  <div class="header-inner container">
+  <div class="header-inner">
     <a href="/" class="logo">渡部かおるピアノ教室</a>
     <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
       <span class="menu-toggle-bar"></span>
@@ -39,28 +39,41 @@ const navItems = [
     top: 0;
     left: 0;
     right: 0;
-    height: var(--header-height);
+    background: transparent;
+    z-index: 100;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  .header.scrolled {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
-    z-index: 100;
-    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    padding: 40px 60px;
   }
 
   .logo {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: #fff;
     letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+
+  .header.scrolled .logo {
+    color: var(--color-text);
   }
 
   .logo:hover {
+    color: var(--color-accent-light);
+  }
+
+  .header.scrolled .logo:hover {
     color: var(--color-accent);
   }
 
@@ -71,11 +84,16 @@ const navItems = [
   }
 
   .nav-link {
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 0.9rem;
     font-weight: 500;
     position: relative;
     padding: 4px 0;
+    transition: color 0.3s;
+  }
+
+  .header.scrolled .nav-link {
+    color: var(--color-text-light);
   }
 
   .nav-link::after {
@@ -85,13 +103,22 @@ const navItems = [
     left: 0;
     width: 0;
     height: 2px;
+    background: #fff;
+    transition: width 0.2s, background 0.3s;
+  }
+
+  .header.scrolled .nav-link::after {
     background: var(--color-accent);
-    transition: width 0.2s;
   }
 
   .nav-link:hover,
   .nav-link.active {
-    color: var(--color-accent);
+    color: #fff;
+  }
+
+  .header.scrolled .nav-link:hover,
+  .header.scrolled .nav-link.active {
+    color: var(--color-text);
   }
 
   .nav-link:hover::after,
@@ -113,8 +140,12 @@ const navItems = [
     display: block;
     width: 24px;
     height: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s, background 0.3s;
+  }
+
+  .header.scrolled .menu-toggle-bar {
     background: var(--color-text);
-    transition: transform 0.3s, opacity 0.3s;
   }
 
   .nav-overlay {
@@ -122,6 +153,15 @@ const navItems = [
   }
 
   @media (max-width: 768px) {
+    .header {
+      height: var(--header-height);
+    }
+
+    .header-inner {
+      height: 100%;
+      padding: 0 12px;
+    }
+
     .nav-overlay {
       display: block;
       position: fixed;
@@ -181,6 +221,23 @@ const navItems = [
 </style>
 
 <script>
+  // スクロールでヘッダーの色を切り替え
+  const header = document.querySelector('.header') as HTMLElement;
+  const hero = document.querySelector('.hero') as HTMLElement;
+
+  function updateHeaderState() {
+    if (!hero) return;
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom <= 0) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+  updateHeaderState();
+
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('nav');
   const overlay = document.getElementById('nav-overlay');
