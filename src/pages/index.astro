@@ -226,8 +226,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- Chiku -->
   <section class="section chiku">
     <div class="container">
+      <div class="chiku-card">
       <h2 class="section-title">松田知育ピアノメソッドコースのご案内</h2>
       <p class="section-subtitle">Chiku Piano Method</p>
+      <img class="chiku-img" src="/images/tiiku01.jpg" alt="松田知育ピアノメソッド" />
 
       <div class="chiku-body">
         <p class="chiku-text">
@@ -247,6 +249,7 @@ import Layout from '../layouts/Layout.astro';
           幼児期のお子様への知育面での働きかけはとても大切だと考えています。<br>
           忙しいご家庭では、なかなかお子様に向かい合う時間を取れないかもしれません。
         </p>
+      </div>
       </div>
     </div>
   </section>
@@ -721,12 +724,51 @@ import Layout from '../layouts/Layout.astro';
 
   /* Chiku */
   .chiku {
-    background: var(--color-bg-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chiku::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: url('/images/tiiku01.jpg') center center / cover no-repeat;
+    filter: blur(6px);
+    z-index: 0;
+  }
+
+  .chiku::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 0;
+  }
+
+  .chiku .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .chiku-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 56px;
+  }
+
+  .chiku-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 32px;
+    display: block;
+    object-fit: cover;
+    max-height: 300px;
   }
 
   .chiku-body {
-    max-width: 720px;
-    margin: 0 auto;
+    margin-top: 0;
   }
 
   .chiku-text {
@@ -1014,6 +1056,10 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 768px) {
+    .chiku-card {
+      padding: 32px 24px;
+    }
+
     .hero {
       margin: 12px;
       border-radius: 16px;
