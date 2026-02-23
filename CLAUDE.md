@@ -28,21 +28,20 @@ public/                   # 静的アセット
 ```
 
 ## デザイン方針
-- **カラー**: 白ベース + コーラル系アクセント
+- **カラー**: ベージュ・ブラウン系（温かみのある落ち着いたトーン）
 - **トーン**: 親しみやすく温かい印象
 - **レスポンシブ**: モバイルファースト（ブレークポイント: 768px）
 - CSS変数は `src/styles/global.css` の `:root` で定義
 
 ### CSS変数一覧
 ```css
---color-bg: #ffffff          /* メイン背景 */
---color-bg-light: #f8f6f4    /* セクション背景（薄グレー系）*/
---color-bg-warm: #fdf5f0     /* セクション背景（温かみのあるベージュ）*/
---color-text: #213028        /* メインテキスト（ダークグリーン系）*/
---color-text-light: #5a6b60  /* サブテキスト */
---color-accent: #e8907a      /* アクセント（コーラル）*/
---color-accent-hover: #d4785f
---color-accent-light: #f5c6b8
+--color-bg: #faf9f7          /* メイン背景（温かみのある白） */
+--color-bg-light: #f5f0eb    /* セクション背景（ベージュ系）*/
+--color-text: #38342e        /* メインテキスト（ダークブラウン系）*/
+--color-text-light: #5b5751  /* サブテキスト */
+--color-accent: #78683b      /* アクセント（ゴールデンブラウン）*/
+--color-accent-hover: #5c5030
+--color-accent-light: #b6b1aa
 --color-border: #e8e0da      /* ボーダー */
 --font-family: 'Noto Sans JP', sans-serif
 --max-width: 1100px
@@ -52,17 +51,20 @@ public/                   # 静的アセット
 ### セクション背景パターン
 | セクション | 背景 |
 |---|---|
-| Hero | `linear-gradient` + `catch-bg.jpg`（白っぽいオーバーレイ付き）|
-| About | `--color-bg`（白）|
-| Features | `--color-bg`（白）|
+| Hero | `linear-gradient` + `catch-bg.jpg`（オーバーレイ付き）|
+| Message | `--color-bg` |
+| Policy | `--color-bg-light` |
+| Commitment | `--color-bg` |
 | Lesson | `--color-bg-light` |
-| SNS | `--color-bg-warm` + `sns-bg.png`（背景画像）|
+| Chiku | `--color-bg-light` |
+| Profile | `--color-bg` |
+| SNS | `--color-bg-light` + `sns-bg.png`（背景画像）|
 | Access | `--color-bg-light` |
-| Intro（CTA） | `#fff`（白）|
+| Intro（CTA） | `--color-bg` |
 
 ### ボタン種類
-- `.btn-primary` — コーラル塗りつぶし（主要CTA）
-- `.btn-outline` — コーラル枠線（サブCTA）
+- `.btn-primary` — ゴールデンブラウン塗りつぶし（主要CTA）
+- `.btn-outline` — ゴールデンブラウン枠線（サブCTA）
 - `.btn-line` — LINE グリーン（`#06C755`）
 - 共通: `border-radius: 40px`（ピル形状）、hover で `translateY(-1px)`
 

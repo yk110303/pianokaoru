@@ -8,14 +8,13 @@
 }
 
 :root {
-  --color-bg: #ffffff;
-  --color-bg-light: #f8f6f4;
-  --color-bg-warm: #fdf5f0;
-  --color-text: #213028;
-  --color-text-light: #5a6b60;
-  --color-accent: #213028;
-  --color-accent-hover: #162119;
-  --color-accent-light: #d0d8d3;
+  --color-bg: #faf9f7;
+  --color-bg-light: #f5f0eb;
+  --color-text: #38342e;
+  --color-text-light: #5b5751;
+  --color-accent: #78683b;
+  --color-accent-hover: #5c5030;
+  --color-accent-light: #b6b1aa;
   --color-border: #e8e0da;
   --font-family: 'Noto Sans JP', sans-serif;
   --max-width: 1100px;

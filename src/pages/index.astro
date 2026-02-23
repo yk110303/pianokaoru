@@ -407,7 +407,7 @@ import Layout from '../layouts/Layout.astro';
     overflow: hidden;
     padding-top: calc(var(--header-height) + 80px);
     padding-bottom: 80px;
-    background: linear-gradient(rgba(33, 48, 40, 0.52), rgba(33, 48, 40, 0.44)), url('/images/catch-bg.jpg') center / cover no-repeat;
+    background: linear-gradient(rgb(48 47 33 / 52%), rgb(48 45 33 / 44%)), url(/images/catch-bg.jpg) center / cover no-repeat;
     text-align: center;
   }
 
@@ -721,7 +721,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* Chiku */
   .chiku {
-    background: var(--color-bg-warm);
+    background: var(--color-bg-light);
   }
 
   .chiku-body {
@@ -799,7 +799,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* SNS */
   .sns {
-    background: var(--color-bg-warm) url('/images/sns-bg.png') center / cover no-repeat;
+    background: var(--color-bg-light) url('/images/sns-bg.png') center / cover no-repeat;
   }
 
   .sns-grid {
@@ -815,7 +815,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     gap: 16px;
     padding: 24px;
-    background: var(--color-bg);
+    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: 12px;
     color: var(--color-text);
@@ -833,7 +833,7 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background: var(--color-bg-warm);
+    background: var(--color-bg-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -898,10 +898,9 @@ import Layout from '../layouts/Layout.astro';
     align-items: flex-start;
     gap: 6px;
     padding: 20px;
-    background: var(--color-accent);
+    background: #fff;
     font-weight: 600;
     font-size: 0.9rem;
-    color: #fff;
   }
 
   .access-icon {
