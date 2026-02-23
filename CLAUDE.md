@@ -51,12 +51,12 @@ public/                   # 静的アセット
 ### セクション背景パターン
 | セクション | 背景 |
 |---|---|
-| Hero | `linear-gradient` + `catch-bg.jpg`（オーバーレイ付き）|
+| Hero | `::before` に `catch-bg.jpg`（パララックス）、`::after` に `linear-gradient` オーバーレイ |
 | Message | `--color-bg` |
 | Policy | `--color-bg-light` |
 | Commitment | `--color-bg` |
 | Lesson | `--color-bg-light` |
-| Chiku | `--color-bg-light` |
+| Chiku | `::before` に `tiiku01.jpg`（ぼかし + パララックス）、`::after` に白オーバーレイ |
 | Profile | `--color-bg` |
 | SNS | `--color-bg-light` + `sns-bg.png`（背景画像）|
 | Access | `--color-bg-light` |
@@ -64,7 +64,7 @@ public/                   # 静的アセット
 
 ### ボタン種類
 - `.btn-primary` — ゴールデンブラウン塗りつぶし（主要CTA）
-- `.btn-outline` — ゴールデンブラウン枠線（サブCTA）
+- `.btn-outline` — 白背景 + ゴールデンブラウン枠線（サブCTA）、hover で塗りつぶしに変化
 - `.btn-line` — LINE グリーン（`#06C755`）
 - 共通: `border-radius: 40px`（ピル形状）、hover で `translateY(-1px)`
 
@@ -76,6 +76,7 @@ public/                   # 静的アセット
 - **ホバー**: カード類は `translateY(-4px)`、ボタンは `translateY(-1px)`
 - **ヘッダーナビ**: アクティブ・ホバー時にアクセントカラーの下線がスライドイン
 - **モバイルメニュー**: スライドダウン + 背景オーバーレイ（`backdrop-filter: blur(8px)`）
+- **パララックス**: Hero・Chiku セクションの背景が JS スクロールイベントで `--parallax-y` CSS変数を更新し `translateY` でゆっくり移動（スクロール量の 20%）
 
 ### 画像ファイル（`public/images/`）
 | ファイル | 用途 |
@@ -97,6 +98,7 @@ public/                   # 静的アセット
 7. **Intro（CTA）** — 締めのメッセージ + ボタン
 
 ## 注意事項
+- **ヘッダー**: トップページはスクロールで `.scrolled` クラスが付く（透明 → 白背景）。サブページは `.hero` 要素がないため初期から `.scrolled` 状態で表示。
 - お問い合わせページはLINEとメールフォームの2択（`contact.astro`）
   - LINEのQRコード画像・URLは未設定（TODO）
   - メールフォームの `API_ENDPOINT` は `contact.astro` 内で設定（現在は空文字）
