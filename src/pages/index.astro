@@ -380,6 +380,25 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
+  // パララックス
+  const parallaxEls = [
+    document.querySelector('.hero'),
+    document.querySelector('.chiku'),
+  ].filter(Boolean) as HTMLElement[];
+
+  function updateParallax() {
+    const vh = window.innerHeight;
+    parallaxEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > vh) return;
+      el.style.setProperty('--parallax-y', `${rect.top * 0.2}px`);
+    });
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  updateParallax();
+
+  // ローダー
   const loader = document.getElementById('loader');
   if (!loader) {
     // do nothing
@@ -410,8 +429,29 @@ import Layout from '../layouts/Layout.astro';
     overflow: hidden;
     padding-top: calc(var(--header-height) + 80px);
     padding-bottom: 80px;
-    background: linear-gradient(rgb(48 47 33 / 52%), rgb(48 45 33 / 44%)), url(/images/catch-bg.jpg) center / cover no-repeat;
     text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: -15%;
+    background: url('/images/catch-bg.jpg') center / cover no-repeat;
+    transform: translateY(var(--parallax-y, 0px));
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgb(48 47 33 / 52%), rgb(48 45 33 / 44%));
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-buttons,
@@ -731,9 +771,10 @@ import Layout from '../layouts/Layout.astro';
   .chiku::before {
     content: '';
     position: absolute;
-    inset: -20px;
+    inset: -80px;
     background: url('/images/tiiku01.jpg') center center / cover no-repeat;
     filter: blur(6px);
+    transform: translateY(var(--parallax-y, 0px));
     z-index: 0;
   }
 
