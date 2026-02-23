@@ -231,7 +231,10 @@ const navItems = [
   const hero = document.querySelector('.hero') as HTMLElement;
 
   function updateHeaderState() {
-    if (!hero) return;
+    if (!hero) {
+      header?.classList.add('scrolled');
+      return;
+    }
     const heroBottom = hero.getBoundingClientRect().bottom;
     if (heroBottom <= 0) {
       header?.classList.add('scrolled');
