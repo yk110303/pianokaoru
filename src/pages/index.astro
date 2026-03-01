@@ -330,8 +330,11 @@ import Layout from '../layouts/Layout.astro';
   .hero::before {
     content: '';
     position: absolute;
-    inset: -15%;
-    background: url('/images/catch-bg.jpg') center / cover no-repeat;
+    top: -15%;
+    right: -15%;
+    bottom: -30%;
+    left: -15%;
+    background: url('/images/classroom02.jpg') center / cover no-repeat;
     transform: translateY(var(--parallax-y, 0px));
     z-index: 0;
   }
