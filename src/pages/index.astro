@@ -93,6 +93,7 @@ import Layout from '../layouts/Layout.astro';
         </p>
 
         <div class="policy-pickup">
+          <h3 class="policy-pickup-title"><span class="gradient-text">ピティナ・ステップ</span>の推奨</h3>
           <p class="policy-pickup-text">
             特にピティナ・ステップでは、ご自身の演奏への評価、講評がいただけ、専用の手帳に参加シールをご自身のピアノの歩みの1ページとして残していけます。<br>
             5回出場毎に継続表彰していただける嬉しい制度もあります。<br>
@@ -223,6 +224,26 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Profile -->
+  <section class="section profile">
+    <div class="container">
+      <h2 class="section-title">プロフィール</h2>
+      <p class="section-subtitle">Profile</p>
+
+      <div class="profile-inner">
+        <p class="profile-name">ピアノ講師 渡部 薫</p>
+        <ul class="profile-list">
+          <li class="profile-item">愛知県立明和高校音楽科 ピアノ専攻卒業</li>
+          <li class="profile-item">国立音楽大学音楽学部器楽学科 ピアノ科卒業</li>
+          <li class="profile-item">PTNA指導会員</li>
+          <li class="profile-item">PSTA指導者</li>
+          <li class="profile-item">バスティン研究会講習修了</li>
+          <li class="profile-item">松田知育ピアノメソッド認定講師</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Chiku -->
   <section class="section chiku">
     <div class="container">
@@ -250,26 +271,6 @@ import Layout from '../layouts/Layout.astro';
           忙しいご家庭では、なかなかお子様に向かい合う時間を取れないかもしれません。
         </p>
       </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Profile -->
-  <section class="section profile">
-    <div class="container">
-      <h2 class="section-title">プロフィール</h2>
-      <p class="section-subtitle">Profile</p>
-
-      <div class="profile-inner">
-        <p class="profile-name">ピアノ講師 渡部 薫</p>
-        <ul class="profile-list">
-          <li class="profile-item">愛知県立明和高校音楽科 ピアノ専攻卒業</li>
-          <li class="profile-item">国立音楽大学音楽学部器楽学科 ピアノ科卒業</li>
-          <li class="profile-item">PTNA指導会員</li>
-          <li class="profile-item">PSTA指導者</li>
-          <li class="profile-item">バスティン研究会講習修了</li>
-          <li class="profile-item">松田知育ピアノメソッド認定講師</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -424,7 +425,7 @@ import Layout from '../layouts/Layout.astro';
   /* Hero */
   .hero {
     position: relative;
-    margin: 20px;
+    margin: 20px 20px 0;
     border-radius: 20px;
     overflow: hidden;
     padding-top: calc(var(--header-height) + 80px);
@@ -498,7 +499,7 @@ import Layout from '../layouts/Layout.astro';
     color: #fff;
     max-width: 420px;
     margin: 0 auto;
-    padding: 8px 0;
+    padding: 20px 0;
   }
 
   .hero-frame-line::before,
@@ -561,6 +562,43 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-text-light);
     line-height: 2.2;
     margin-bottom: 32px;
+  }
+
+  .policy-pickup {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .policy-pickup-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      to right,
+      #dcbd3d,  /* 黄 */
+      #fb923c,  /* オレンジ */
+      #cf5656,  /* 赤 */
+      #7d5eda,  /* 紫（中央） */
+      #366daf,  /* 青 */
+      #39955b   /* 緑 */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .policy-pickup-text {
+    margin-bottom: 0;
   }
 
 
@@ -659,22 +697,22 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .lesson-card-header {
-    background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
+    background: #fff;
     padding: 20px 24px;
-    border-bottom: none;
+    border-bottom: 1px solid var(--color-border);
   }
 
 
   .lesson-card-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text);
     margin-bottom: 4px;
   }
 
   .lesson-card-desc {
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-light);
     line-height: 1.6;
   }
 
@@ -734,23 +772,22 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.85rem;
     color: var(--color-text-light);
     text-align: center;
-    padding: 16px 20px;
-    background: #fff;
-    border-radius: 8px;
-    border-left: 3px solid var(--color-accent-light);
+    margin-top: 24px;
   }
 
   /* Chiku */
   .chiku {
     position: relative;
     overflow: hidden;
+    margin: 0 20px 20px;
+    border-radius: 20px;
   }
 
   .chiku::before {
     content: '';
     position: absolute;
-    inset: -80px;
-    background: url('/images/tiiku01.jpg') center center / cover no-repeat;
+    inset: -160px -160px -320px -160px;
+    background: url('/images/tiiku-bg.jpg') center center / cover no-repeat;
     filter: blur(6px);
     transform: translateY(var(--parallax-y, 0px));
     z-index: 0;
@@ -770,7 +807,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .chiku-card {
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     background: #fff;
     border-radius: 16px;
@@ -827,25 +864,17 @@ import Layout from '../layouts/Layout.astro';
 
   .profile-list {
     list-style: none;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    overflow: hidden;
     text-align: left;
+    display: inline-block;
   }
 
   .profile-item {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     font-size: 0.9rem;
     color: var(--color-text-light);
-    padding: 14px 24px;
-    border-bottom: 1px solid var(--color-border);
-    background: #fff;
-  }
-
-  .profile-item:last-child {
-    border-bottom: none;
+    padding: 6px 0;
   }
 
   .profile-item::before {
@@ -1075,12 +1104,17 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 768px) {
+    .chiku {
+      margin: 0 12px;
+      border-radius: 16px;
+    }
+
     .chiku-card {
       padding: 32px 24px;
     }
 
     .hero {
-      margin: 12px;
+      margin: 12px 12px 0;
       border-radius: 16px;
       padding-top: calc(var(--header-height) + 48px);
       padding-bottom: 56px;

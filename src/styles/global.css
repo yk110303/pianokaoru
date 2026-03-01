@@ -85,7 +85,7 @@ a:hover {
 
 .section-subtitle {
   text-align: center;
-  color: var(--color-text-light);
+  color: var(--color-accent-light);
   font-size: 0.9rem;
   margin-bottom: 48px;
 }

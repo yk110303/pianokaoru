@@ -1,5 +1,8 @@
 # pianokaori - ピアノ教室Webサイト
 
+## Claude へのルール
+- 編集によってこのファイルの内容に変更が生じた場合、**作業完了後に必ず CLAUDE.md を更新すること**
+
 ## プロジェクト概要
 ピアノ教室「pianokaori」の静的Webサイト。親しみやすく温かみのあるデザイン。
 
@@ -56,7 +59,7 @@ public/                   # 静的アセット
 | Policy | `--color-bg-light` |
 | Commitment | `--color-bg` |
 | Lesson | `--color-bg-light` |
-| Chiku | `::before` に `tiiku01.jpg`（ぼかし + パララックス）、`::after` に白オーバーレイ |
+| Chiku | `::before` に `tiiku-bg.jpg`（ぼかし + パララックス）、`::after` に白オーバーレイ |
 | Profile | `--color-bg` |
 | SNS | `--color-bg-light` + `sns-bg.png`（背景画像）|
 | Access | `--color-bg-light` |
@@ -70,6 +73,10 @@ public/                   # 静的アセット
 
 ### セクションタイトル装飾
 `.section-title` は両サイドに短い横線（`::before`/`::after`）を表示。日本語タイトル + 英語サブタイトル（`.section-subtitle`）のセット。
+- `.section-subtitle` の色は `--color-accent-light`
+
+### その他スタイル
+- `.gradient-text` — レインボーグラデーションテキスト（Policy の「ピティナ・ステップ」に使用）
 
 ### アニメーション
 - **ローダー**: トップページ初回訪問時のみ音符（♩♪♫♬）がバウンスイン → 1.2秒後にフェードアウト。`sessionStorage` で2回目以降はスキップ。
@@ -86,16 +93,21 @@ public/                   # 静的アセット
 | `feature-lesson.png` | 特徴カード①アイコン（200×200px表示）|
 | `feature-music.png` | 特徴カード②アイコン |
 | `feature-room.png` | 特徴カード③アイコン |
-| `lesson-01.png` ～ `lesson-04.png` | レッスンカードヘッダー背景（右寄せ）|
+| `tiiku-bg.jpg` | 知育セクション背景（専用画像）|
+| `tiiku01.jpg` | 知育セクション内カード画像 |
+| `lesson-01.png` ～ `lesson-04.png` | 未使用（削除済み）|
 
 ## ページ構成（`index.astro`のセクション順）
-1. **Hero** — キャッチコピー + CTA（お問い合わせ / LINE）
-2. **About** — プロフィール文 + 3つのフィロソフィー（01〜03）
-3. **Features** — 教室の特徴 3カラムグリッド
-4. **Lesson** — 4種コース料金表（通常 / 中学生以上 / 知育プラス / 大人単発）
-5. **SNS** — Instagram / Ameba Blog リンクカード
-6. **Access** — 住所・アクセス情報（練馬区下石神井5丁目）
-7. **Intro（CTA）** — 締めのメッセージ + ボタン
+1. **Hero** — キャッチコピー + CTA（お問い合わせ / LINE）（`margin: 0 20px`・`border-radius: 20px`・上マージンなし）
+2. **Message** — メッセージ
+3. **Policy** — レッスン方針（`policy-pickup` カードに「ピティナ・ステップの推奨」小見出し付き）
+4. **Commitment** — 講師のこだわり（01〜02）
+5. **Lesson** — 4種コース料金表（通常 / 中学生以上 / 知育プラス / 大人単発）
+6. **Profile** — プロフィール・資格
+7. **Chiku** — 松田知育ピアノメソッドコース（`chiku-card` max-width: 900px、`margin: 0 20px 20px`・`border-radius: 20px`）
+8. **SNS** — Instagram / Ameba Blog リンクカード
+9. **Access** — 住所・アクセス情報（練馬区下石神井5丁目）
+10. **Intro（CTA）** — 締めのメッセージ + ボタン
 
 ## 注意事項
 - **ヘッダー**: トップページはスクロールで `.scrolled` クラスが付く（透明 → 白背景）。サブページは `.hero` 要素がないため初期から `.scrolled` 状態で表示。
