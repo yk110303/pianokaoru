@@ -27,10 +27,9 @@ import Layout from '../layouts/Layout.astro';
           <div class="method-body">
             <p class="method-desc">LINEからお気軽にメッセージをお送りください。</p>
             <div class="line-qr">
-              <!-- TODO: QRコード画像を配置 -->
-              <div class="line-qr-placeholder">QRコード</div>
+              <img src="/images/qr-line.jpg" alt="LINE QRコード" class="line-qr-img" width="160" height="160" />
             </div>
-            <a href="#" class="btn btn-line method-btn">
+            <a href="https://lin.ee/tpY9vJf" target="_blank" rel="noopener noreferrer" class="btn btn-line method-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.921 1.558 5.527 4.001 7.245L5 21.5l3.13-1.65C9.3 20.27 10.62 20.5 12 20.5c5.523 0 10-4.145 10-9.257C22 6.145 17.523 2 12 2zm-3.5 11.5h-1.25A.25.25 0 0 1 7 13.25v-4.5A.25.25 0 0 1 7.25 8.5h1.25v5zm1.75 0V8.5h1.25l2 3.25V8.5H14.75v5H13.5l-2-3.25v3.25H10.25zm7 0H15v-5h2.75v1.25h-1.5v.75h1.5V11.5h-1.5v.75h1.5V13.5z"/>
               </svg>
@@ -169,16 +168,11 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 20px;
   }
 
-  .line-qr-placeholder {
+  .line-qr-img {
     width: 160px;
     height: 160px;
-    border: 2px dashed var(--color-border);
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    color: var(--color-text-light);
+    object-fit: cover;
   }
 
   .method-btn {
