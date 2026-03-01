@@ -8,15 +8,32 @@
 
 ## 技術スタック
 - **フレームワーク**: Astro（静的サイト生成）
-- **ホスティング**: S3 + CloudFront
-- **お問い合わせ**: API Gateway + Lambda + SES
+- **ホスティング**: S3 + CloudFront（Route53 + ACM でカスタムドメイン）
+- **お問い合わせ**: API Gateway (HTTP API) + Lambda (Node.js 20.x) + SES
+- **インフラ管理**: Terraform（tfstate は S3 バックエンド + DynamoDB ロック）
 - **フォント**: Noto Sans JP（Google Fonts）
 - **言語**: TypeScript（strictest）
 
 ## コマンド
+
+### フロントエンド
 - `npm run dev` - 開発サーバー起動
 - `npm run build` - 本番ビルド（dist/に出力）
 - `npm run preview` - ビルド結果のプレビュー
+
+### Terraform
+```bash
+# 初回のみ: tfstate 用リソースを作成
+cd terraform/bootstrap && terraform init && terraform apply
+
+# メインインフラの適用
+cd terraform && terraform init && terraform apply
+
+# デプロイ（ビルド → S3同期 → CloudFrontキャッシュクリア）
+npm run build
+aws s3 sync dist/ s3://<domain_name>/ --delete
+aws cloudfront create-invalidation --distribution-id $(terraform output -raw cloudfront_distribution_id) --paths "/*"
+```
 
 ## ディレクトリ構成
 ```
@@ -27,6 +44,20 @@ src/
   styles/global.css       # グローバルスタイル
 lambda/
   contact.mjs             # お問い合わせ用Lambda関数（SES送信）
+terraform/
+  bootstrap/main.tf       # tfstate用S3+DynamoDB（初回のみ実行）
+  providers.tf            # AWSプロバイダー + S3バックエンド設定
+  variables.tf            # 入力変数（domain_name, to_email, from_email）
+  outputs.tf              # 出力値（site_url, api_endpoint, s3_bucket_name など）
+  s3.tf                   # 静的サイト用S3バケット
+  cloudfront.tf           # CloudFrontディストリビューション（OAC使用）
+  acm.tf                  # SSL証明書（us-east-1 で作成）+ DNS検証
+  route53.tf              # A/AAAAレコード（apex + www）
+  iam.tf                  # Lambda実行ロール + SES送信権限
+  lambda.tf               # お問い合わせLambda（archive_fileでzip化）
+  api_gateway.tf          # HTTP API（POST /contact）
+  ses.tf                  # 送受信メールアドレス検証
+  terraform.tfvars.example
 public/                   # 静的アセット
 ```
 
@@ -113,7 +144,11 @@ public/                   # 静的アセット
 - **ヘッダー**: トップページはスクロールで `.scrolled` クラスが付く（透明 → 白背景）。サブページは `.hero` 要素がないため初期から `.scrolled` 状態で表示。
 - お問い合わせページはLINEとメールフォームの2択（`contact.astro`）
   - LINEのQRコード画像・URLは未設定（TODO）
-  - メールフォームの `API_ENDPOINT` は `contact.astro` 内で設定（現在は空文字）
-- Lambda関数のAWSデプロイ手順は `lambda/contact.mjs` のコメントに記載
+  - メールフォームの `API_ENDPOINT` は `contact.astro` 内で設定（`terraform output api_endpoint` の値を使う）
+- Lambda は Terraform の `archive_file` で zip 化して自動デプロイされる
+- SES は新規 AWS アカウントだとサンドボックスモード。本番運用前に AWS サポートへ「本番アクセス」を申請すること
+- API Gateway の payload_format_version は `1.0`（Lambda 内で `event.httpMethod` を使うため）
+- Terraform の設定値（メールアドレス等）は `terraform/terraform.tfvars` に記述し、`.gitignore` で除外済み
+- Route53 のホストゾーンは Terraform 管理外（事前に作成しておくこと）
 - サイトの言語は日本語（`lang="ja"`）
 - SNSリンク（Instagram・Ameba Blog）は `href="#"` のプレースホルダー（TODO）

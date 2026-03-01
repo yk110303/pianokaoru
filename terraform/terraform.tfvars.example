@@ -1,0 +1,7 @@
+# terraform.tfvars.example
+# このファイルをコピーして terraform.tfvars を作成し、値を入力してください。
+# terraform.tfvars は .gitignore で管理対象外になっています。
+
+domain_name = "pianokaori.com"
+to_email    = "your-email@example.com"
+from_email  = "noreply@pianokaori.com"
