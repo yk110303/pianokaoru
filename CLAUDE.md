@@ -40,7 +40,7 @@ aws cloudfront create-invalidation --distribution-id $(terraform output -raw clo
 src/
   layouts/Layout.astro    # 共通HTMLシェル（head, fonts, Header/Footer）
   components/             # Header.astro, Footer.astro
-  pages/                  # index.astro, contact.astro
+  pages/                  # index.astro, lesson.astro, profile.astro, contact.astro
   styles/global.css       # グローバルスタイル
 lambda/
   contact.mjs             # お問い合わせ用Lambda関数（SES送信）
@@ -89,9 +89,9 @@ public/                   # 静的アセット
 | Message | `--color-bg` |
 | Policy | `--color-bg-light` |
 | Commitment | `--color-bg` |
-| Lesson | `--color-bg-light` |
+| Lesson | `--color-bg-light`（`/lesson` ページ） |
 | Chiku | `::before` に `tiiku-bg.jpg`（ぼかし + パララックス）、`::after` に白オーバーレイ |
-| Profile | `--color-bg` |
+| Profile | `--color-bg`（`/profile` ページ） |
 | SNS | `--color-bg-light` + `sns-bg.png`（背景画像）|
 | Access | `--color-bg-light` |
 | Intro（CTA） | `--color-bg` |
@@ -128,17 +128,24 @@ public/                   # 静的アセット
 | `tiiku01.jpg` | 知育セクション内カード画像 |
 | `lesson-01.png` ～ `lesson-04.png` | 未使用（削除済み）|
 
-## ページ構成（`index.astro`のセクション順）
+## ページ構成
+
+### `index.astro`（`/`）のセクション順
 1. **Hero** — キャッチコピー + CTA（お問い合わせ / LINE）（`margin: 0 20px`・`border-radius: 20px`・上マージンなし）
 2. **Message** — メッセージ
 3. **Policy** — レッスン方針（`policy-pickup` カードに「ピティナ・ステップの推奨」小見出し付き）
 4. **Commitment** — 講師のこだわり（01〜02）
-5. **Lesson** — 4種コース料金表（通常 / 中学生以上 / 知育プラス / 大人単発）
-6. **Profile** — プロフィール・資格
-7. **Chiku** — 松田知育ピアノメソッドコース（`chiku-card` max-width: 900px、`margin: 0 20px 20px`・`border-radius: 20px`）
-8. **SNS** — Instagram / Ameba Blog リンクカード
-9. **Access** — 住所・アクセス情報（練馬区下石神井5丁目）
-10. **Intro（CTA）** — 締めのメッセージ + ボタン
+5. **Chiku** — 松田知育ピアノメソッドコース（`chiku-card` max-width: 900px、`margin: 0 20px 20px`・`border-radius: 20px`）
+6. **SNS** — Instagram / Ameba Blog リンクカード
+7. **Access** — 住所・アクセス情報（練馬区下石神井5丁目）
+8. **Intro（CTA）** — 締めのメッセージ + ボタン
+
+### 独立ページ
+- **`lesson.astro`（`/lesson`）** — レッスン案内（4種コース料金表：通常 / 中学生以上 / 知育プラス / 大人単発）
+- **`profile.astro`（`/profile`）** — プロフィール・資格（渡部 薫）
+- **`contact.astro`（`/contact`）** — お問い合わせ（LINE / メールフォーム）
+
+サブページ（lesson / profile / contact）は `.page-header` / `.page-title` / `.page-subtitle` を共通で使用（`global.css` で定義）。
 
 ## 注意事項
 - **ヘッダー**: トップページはスクロールで `.scrolled` クラスが付く（透明 → 白背景）。サブページは `.hero` 要素がないため初期から `.scrolled` 状態で表示。

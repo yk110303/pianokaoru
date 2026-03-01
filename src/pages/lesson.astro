@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="レッスン案内 | 渡部かおるピアノ教室" description="渡部かおるピアノ教室のレッスンコース案内。通常・中学生以上・知育プラス・大人向け単発の4コースをご用意しています。">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">レッスン案内</h1>
+      <p class="page-subtitle">あなたのペースに合わせたコースをご用意しています</p>
+    </div>
+  </section>
+
+  <!-- Lesson -->
+  <section class="section lesson">
+    <div class="container">
+      <div class="lesson-schedule">
+        <span class="schedule-text">レッスン曜日：月曜日〜木曜日&ensp;15:00〜19:00</span>
+      </div>
+
+      <div class="lesson-grid">
+        <!-- 通常レッスンコース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h2 class="lesson-card-title">通常レッスンコース</h2>
+            <p class="lesson-card-desc">全ての年齢の方向けのコース</p>
+          </div>
+          <p class="lesson-card-detail">バイエルやブルグミュラーなどの基礎教材から、弾いてみたい曲まで幅広く対応します。初めての方はもちろん、久しぶりに再開したい方も安心してスタートできます。年1回の発表会で、目標を持って取り組めます。</p>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間41回（発表会含む）<br><small>火〜木曜日</small></span>
+              <span class="lesson-price-value">30分 <strong>¥7,000</strong></span>
+            </li>
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間38回（発表会含む）<br><small>月曜日のみ</small></span>
+              <span class="lesson-price-value">30分 <strong>¥6,500</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 中学生以上対象コース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h2 class="lesson-card-title">中学生以上対象コース</h2>
+            <p class="lesson-card-desc">部活動や学業で忙しい方向けのコース</p>
+          </div>
+          <p class="lesson-card-detail">部活や定期テストなど、忙しいスケジュールに合わせてレッスン回数を選べます。音楽を続けたいけれど通うのが難しいという方も、無理なく長く続けられるように設計されたコースです。</p>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間34回（発表会含む）</span>
+              <span class="lesson-price-value">30分 <strong>¥6,000</strong></span>
+            </li>
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">年間27回（発表会含む）</span>
+              <span class="lesson-price-value">30分 <strong>¥5,000</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 知育プラスコース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h2 class="lesson-card-title">知育プラスコース</h2>
+            <p class="lesson-card-desc">松田知育ピアノメソッドを取り入れた<br>3歳前後の幼児さん向けのコース</p>
+          </div>
+          <p class="lesson-card-detail">音感・リズム感・集中力を楽しみながら育てる松田知育ピアノメソッドを採用。ピアノを通じてお子さまの心と知性の成長をやさしくサポートします。親子で一緒に音楽の楽しさを体験できます。</p>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">月2回</span>
+              <span class="lesson-price-value"><strong>¥5,000</strong></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 大人向け単発コース -->
+        <div class="lesson-card">
+          <div class="lesson-card-header">
+            <h2 class="lesson-card-title">大人向け単発コース</h2>
+            <p class="lesson-card-desc">1曲だけでも弾いてみたい、趣味を広げたいなど<br>マイペースに進めたいコース</p>
+          </div>
+          <p class="lesson-card-detail">「あの曲を弾いてみたい」という一つの目標から気軽に始められます。定期的な通学が難しい方や、まずは体験してみたい方にもぴったりです。お好きなタイミングでご予約いただけます。</p>
+          <ul class="lesson-price-list">
+            <li class="lesson-price-item">
+              <span class="lesson-price-label">1回</span>
+              <span class="lesson-price-value"><strong>¥2,500</strong></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="lesson-note">
+        ※ 通常コース・中学生以上対象コースで40分レッスンをご希望の場合は、各料金にプラス¥1,500となります。
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .lesson {
+    background: var(--color-bg-light);
+  }
+
+  .lesson-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    padding: 14px 28px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .schedule-text {
+    color: var(--color-text);
+  }
+
+  .lesson-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .lesson-card {
+    background: var(--color-bg);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .lesson-card-header {
+    background: #fff;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .lesson-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .lesson-card-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .lesson-card-detail {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .lesson-price-list {
+    list-style: none;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lesson-price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .lesson-price-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .lesson-price-label {
+    font-size: 0.88rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .lesson-price-label small {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+  }
+
+  .lesson-price-value {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+
+  .lesson-price-value strong {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+  }
+
+  .lesson-note {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .lesson-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .lesson-schedule {
+      font-size: 0.88rem;
+      padding: 12px 20px;
+    }
+
+    .lesson-price-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .lesson-price-value {
+      margin-left: 0;
+    }
+  }
+</style>
