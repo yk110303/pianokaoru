@@ -144,7 +144,9 @@ import Layout from '../layouts/Layout.astro';
       <div class="chiku-card">
       <h2 class="section-title">松田知育ピアノメソッドコースのご案内</h2>
       <p class="section-subtitle">Chiku Piano Method</p>
-      <img class="chiku-img" src="/images/tiiku01.jpg" alt="松田知育ピアノメソッド" />
+      <div class="chiku-img-wrap">
+        <img class="chiku-img" src="/images/tiiku01.jpg" alt="松田知育ピアノメソッド" />
+      </div>
 
       <div class="chiku-body">
         <p class="chiku-text">
@@ -281,12 +283,17 @@ import Layout from '../layouts/Layout.astro';
     document.querySelector('.chiku'),
   ].filter(Boolean) as HTMLElement[];
 
+  const chikuImg = document.querySelector('.chiku-img') as HTMLElement | null;
+
   function updateParallax() {
     const vh = window.innerHeight;
     parallaxEls.forEach((el) => {
       const rect = el.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > vh) return;
       el.style.setProperty('--parallax-y', `${rect.top * 0.2}px`);
+      if (el.classList.contains('chiku') && chikuImg) {
+        chikuImg.style.setProperty('--parallax-img-y', `${rect.top * 0.08}px`);
+      }
     });
   }
 
@@ -445,7 +452,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* Policy */
   .policy {
-    background: var(--color-bg-light);
+    background: var(--color-bg-dark);
   }
 
   .policy-body {
@@ -592,13 +599,19 @@ import Layout from '../layouts/Layout.astro';
     padding: 48px 56px;
   }
 
-  .chiku-img {
-    width: 100%;
+  .chiku-img-wrap {
+    overflow: hidden;
     border-radius: 10px;
     margin-bottom: 32px;
+    transform: translateZ(0);
+  }
+
+  .chiku-img {
+    width: 100%;
     display: block;
     object-fit: cover;
     max-height: 300px;
+    transform: translateY(var(--parallax-img-y, 0px));
   }
 
   .chiku-body {
@@ -623,7 +636,10 @@ import Layout from '../layouts/Layout.astro';
 
   /* SNS */
   .sns {
-    background: var(--color-bg-light) url('/images/sns-bg.png') center / cover no-repeat;
+    background:
+      linear-gradient(rgba(254, 252, 253, 0.65), rgba(254, 252, 253, 0.65)),
+      url('/images/sns-bg.png') center bottom / cover no-repeat var(--color-bg-dark);
+    padding: 80px 0 160px;
   }
 
   .sns-grid {
@@ -657,7 +673,7 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background: var(--color-bg-light);
+    background: var(--color-bg-dark);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -692,7 +708,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* Access */
   .access {
-    background: var(--color-bg-light);
+    background: var(--color-bg-dark);
   }
 
   .access-inner {

@@ -69,14 +69,17 @@ public/                   # 静的アセット
 
 ### CSS変数一覧
 ```css
---color-bg: #faf9f7          /* メイン背景（温かみのある白） */
---color-bg-light: #f5f0eb    /* セクション背景（ベージュ系）*/
+--color-bg: #ffffff          /* メイン背景（白） */
+--color-bg-dark: #f5f0eb     /* セクション背景（ベージュ系）*/
 --color-text: #38342e        /* メインテキスト（ダークブラウン系）*/
 --color-text-light: #5b5751  /* サブテキスト */
---color-accent: #78683b      /* アクセント（ゴールデンブラウン）*/
+--color-accent: #78683b      /* アクセント（ゴールデンブラウン） */
 --color-accent-hover: #5c5030
 --color-accent-light: #b6b1aa
 --color-border: #e8e0da      /* ボーダー */
+--color-chiku: #6a9e46       /* 知育アクセント（黄緑・フォント用） */
+--color-chiku-hover: #527a34 /* 知育ホバー */
+--color-chiku-light: #e8f3dc /* 知育背景（薄い黄緑） */
 --font-family: 'Noto Sans JP', sans-serif
 --max-width: 1100px
 --header-height: 72px
@@ -85,15 +88,15 @@ public/                   # 静的アセット
 ### セクション背景パターン
 | セクション | 背景 |
 |---|---|
-| Hero | `::before` に `catch-bg.jpg`（パララックス）、`::after` に `linear-gradient` オーバーレイ |
+| Hero | `::before` に `classroom02.jpg`（パララックス）、`::after` に `linear-gradient` オーバーレイ |
 | Message | `--color-bg` |
-| Policy | `--color-bg-light` |
+| Policy | `--color-bg-dark` |
 | Commitment | `--color-bg` |
-| Lesson | `--color-bg-light`（`/lesson` ページ） |
+| Lesson | `--color-bg-dark`（`/lesson` ページ） |
 | Chiku | `::before` に `tiiku-bg.jpg`（ぼかし + パララックス）、`::after` に白オーバーレイ |
 | Profile | `--color-bg`（`/profile` ページ） |
-| SNS | `--color-bg-light` + `sns-bg.png`（背景画像）|
-| Access | `--color-bg-light` |
+| SNS | `--color-bg-dark` + `sns-bg.png`（背景画像）|
+| Access | `--color-bg-dark` |
 | Intro（CTA） | `--color-bg` |
 
 ### ボタン種類
@@ -119,7 +122,7 @@ public/                   # 静的アセット
 ### 画像ファイル（`public/images/`）
 | ファイル | 用途 |
 |---|---|
-| `catch-bg.jpg` | Hero背景 |
+| `lesson-cache-bg.jpg` | レッスン案内ページのキャッチ背景 |
 | `sns-bg.png` | SNSセクション背景 |
 | `feature-lesson.png` | 特徴カード①アイコン（200×200px表示）|
 | `feature-music.png` | 特徴カード②アイコン |

@@ -96,8 +96,43 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  .page-header {
+    position: relative;
+    background: none;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/lesson-cache-bg.jpg') center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .page-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30, 20, 10, 0.62) 0%, rgba(60, 45, 20, 0.52) 100%);
+    z-index: 1;
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-title {
+    color: #fff;
+  }
+
+  .page-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
   .lesson {
-    background: var(--color-bg-light);
+    background: var(--color-bg-dark);
   }
 
   .lesson-schedule {
