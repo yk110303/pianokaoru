@@ -367,13 +367,34 @@ import Layout from '../layouts/Layout.astro';
     justify-content: center;
   }
 
+  /* text-bg-pop.png をテキストに適用する共通スタイル */
+  .hero-sub,
+  .commitment-num {
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* text-bg-emphasize.png をテキストに適用する共通スタイル */
+  .message-lead,
+  .chiku-lead {
+    background-image: var(--text-bg-emphasize);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .hero-sub {
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 16px;
+    background-position: 60% 50%;
+    filter: saturate(0.7) brightness(1.2);
   }
 
   .hero-title {
@@ -433,7 +454,6 @@ import Layout from '../layouts/Layout.astro';
   .message-lead {
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--color-text);
     line-height: 2;
     margin-bottom: 36px;
     letter-spacing: 0.03em;
@@ -531,11 +551,19 @@ import Layout from '../layouts/Layout.astro';
   .commitment-num {
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--color-accent-light);
     line-height: 1;
     flex-shrink: 0;
     letter-spacing: -0.02em;
     min-width: 56px;
+    filter: saturate(0.6) brightness(1.1);
+  }
+
+  .commitment-item:nth-child(1) .commitment-num {
+    background-position: 20% 20%;
+  }
+
+  .commitment-item:nth-child(2) .commitment-num {
+    background-position: 80% 70%;
   }
 
   .commitment-body {
@@ -628,7 +656,6 @@ import Layout from '../layouts/Layout.astro';
   .chiku-lead {
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--color-accent);
     text-align: center;
     margin-bottom: 28px;
     letter-spacing: 0.04em;
@@ -802,6 +829,32 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 32px;
   }
 
+  /* お問い合わせ系ボタン: テキストに text-bg-pop を適用、ボーダーは薄いグレー */
+  .hero-buttons .btn-outline,
+  .intro-buttons .btn-outline {
+    border-color: var(--color-border);
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    background-position: 20% 40%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-buttons .btn-outline:hover,
+  .intro-buttons .btn-outline:hover {
+    border-color: transparent;
+    background-image:
+      var(--text-bg-pop),
+      linear-gradient(#fff, #fff),
+      var(--text-bg-pop);
+    background-size: 800% 800%, auto, 400% 400%;
+    background-position: 60% 70%, center, 40% 30%;
+    background-origin: border-box;
+    background-clip: text, padding-box, border-box;
+    color: transparent;
+  }
+
   /* Loader */
   #loader {
     position: fixed;
@@ -828,21 +881,26 @@ import Layout from '../layouts/Layout.astro';
   .loader-notes {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 24px;
   }
 
   .note {
-    font-size: 3rem;
-    color: var(--color-accent);
+    font-size: 2rem;
     display: inline-block;
     animation: alignNote 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     animation-fill-mode: both;
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: saturate(0.65) brightness(1.15) hue-rotate(-20deg);
   }
 
-  .note.n1 { --offset: -28px; animation-delay: 0s; }
-  .note.n2 { --offset: 22px;  animation-delay: 0.12s; }
-  .note.n3 { --offset: -16px; animation-delay: 0.24s; }
-  .note.n4 { --offset: 24px;  animation-delay: 0.36s; }
+  .note.n1 { --offset: -28px; animation-delay: 0s;    background-position: 15% 60%; }
+  .note.n2 { --offset: 22px;  animation-delay: 0.12s; background-position: 35% 75%; }
+  .note.n3 { --offset: -16px; animation-delay: 0.24s; background-position: 25% 50%; }
+  .note.n4 { --offset: 24px;  animation-delay: 0.36s; background-position: 50% 70%; }
 
   @keyframes alignNote {
     from { transform: translateY(var(--offset)); opacity: 0.5; }

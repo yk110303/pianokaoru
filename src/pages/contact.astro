@@ -113,6 +113,21 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  .page-header {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+      url('/images/classroom03.jpg') center / cover no-repeat;
+    color: #fff;
+  }
+
+  .page-header .page-title {
+    color: #fff;
+  }
+
+  .page-header .page-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
   .contact {
     background: var(--color-bg);
   }
@@ -271,6 +286,32 @@ import Layout from '../layouts/Layout.astro';
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+  }
+
+  /* 送信するボタン: テキストに text-bg-pop を適用、ボーダーは薄いグレー */
+  .form-actions .btn-outline,
+  #retry-btn {
+    border-color: var(--color-border);
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    background-position: 20% 40%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .form-actions .btn-outline:hover,
+  #retry-btn:hover {
+    border-color: transparent;
+    background-image:
+      var(--text-bg-pop),
+      linear-gradient(#fff, #fff),
+      var(--text-bg-pop);
+    background-size: 800% 800%, auto, 400% 400%;
+    background-position: 60% 70%, center, 40% 30%;
+    background-origin: border-box;
+    background-clip: text, padding-box, border-box;
+    color: transparent;
   }
 
   /* Result */

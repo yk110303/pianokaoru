@@ -105,12 +105,10 @@ const navItems = [
     left: 0;
     width: 0;
     height: 2px;
-    background: #fff;
-    transition: width 0.2s, background 0.3s;
-  }
-
-  .header.scrolled .nav-link::after {
-    background: var(--color-accent);
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    background-position: center;
+    transition: width 0.2s;
   }
 
   .nav-link:hover,
