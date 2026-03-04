@@ -43,13 +43,11 @@ const navItems = [
     right: 0;
     background: transparent;
     z-index: 100;
-    transition: background 0.3s, box-shadow 0.3s;
+    transition: padding 0.3s;
   }
 
   .header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px 20px 0;
   }
 
   .header-inner {
@@ -57,6 +55,15 @@ const navItems = [
     align-items: center;
     justify-content: space-between;
     padding: 40px 60px;
+    transition: background 0.3s, box-shadow 0.3s, border-radius 0.3s, padding 0.3s;
+  }
+
+  .header.scrolled .header-inner {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 20px 40px;
   }
 
   .logo {
@@ -105,11 +112,15 @@ const navItems = [
     left: 0;
     width: 0;
     height: 2px;
-    background-image: var(--text-bg-pop);
-    background-size: 800% 800%;
-    background-position: center;
+    background-image: url('/images/image-bg-pop.png');
+    background-size: 400px 400px;
     transition: width 0.2s;
   }
+
+  li:nth-child(1) .nav-link::after { background-position: 0px 0px; }
+  li:nth-child(2) .nav-link::after { background-position: -100px -100px; }
+  li:nth-child(3) .nav-link::after { background-position: -200px -200px; }
+  li:nth-child(4) .nav-link::after { background-position: -300px -100px; }
 
   .nav-link:hover,
   .nav-link.active {
@@ -157,8 +168,17 @@ const navItems = [
       height: var(--header-height);
     }
 
+    .header.scrolled {
+      padding: 0;
+    }
+
     .header-inner {
       height: 100%;
+      padding: 0 24px;
+    }
+
+    .header.scrolled .header-inner {
+      border-radius: 0;
       padding: 0 24px;
     }
 

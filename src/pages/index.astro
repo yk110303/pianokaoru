@@ -283,17 +283,12 @@ import Layout from '../layouts/Layout.astro';
     document.querySelector('.chiku'),
   ].filter(Boolean) as HTMLElement[];
 
-  const chikuImg = document.querySelector('.chiku-img') as HTMLElement | null;
-
   function updateParallax() {
     const vh = window.innerHeight;
     parallaxEls.forEach((el) => {
       const rect = el.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > vh) return;
       el.style.setProperty('--parallax-y', `${rect.top * 0.2}px`);
-      if (el.classList.contains('chiku') && chikuImg) {
-        chikuImg.style.setProperty('--parallax-img-y', `${rect.top * 0.08}px`);
-      }
     });
   }
 
@@ -381,7 +376,7 @@ import Layout from '../layouts/Layout.astro';
   .message-lead,
   .chiku-lead {
     background-image: var(--text-bg-emphasize);
-    background-size: 800% 800%;
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -628,10 +623,8 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .chiku-img-wrap {
-    overflow: hidden;
-    border-radius: 10px;
+    clip-path: inset(0 round 10px);
     margin-bottom: 32px;
-    transform: translateZ(0);
   }
 
   .chiku-img {
@@ -639,7 +632,6 @@ import Layout from '../layouts/Layout.astro';
     display: block;
     object-fit: cover;
     max-height: 300px;
-    transform: translateY(var(--parallax-img-y, 0px));
   }
 
   .chiku-body {

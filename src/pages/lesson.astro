@@ -22,10 +22,13 @@ import Layout from '../layouts/Layout.astro';
         <!-- 通常レッスンコース -->
         <div class="lesson-card">
           <div class="lesson-card-header">
-            <h2 class="lesson-card-title">通常レッスンコース</h2>
+            <div class="lesson-title-group">
+              <div class="dog-tag"><span>通常</span></div>
+              <h2 class="lesson-card-title">通常レッスンコース</h2>
+            </div>
             <p class="lesson-card-desc">全ての年齢の方向けのコース</p>
+            <p class="lesson-card-detail">バイエルやブルグミュラーなどの基礎教材から、弾いてみたい曲まで幅広く対応します。初めての方はもちろん、久しぶりに再開したい方も安心してスタートできます。年1回の発表会で、目標を持って取り組めます。</p>
           </div>
-          <p class="lesson-card-detail">バイエルやブルグミュラーなどの基礎教材から、弾いてみたい曲まで幅広く対応します。初めての方はもちろん、久しぶりに再開したい方も安心してスタートできます。年1回の発表会で、目標を持って取り組めます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間41回（発表会含む）<br><small>火〜木曜日</small></span>
@@ -41,10 +44,13 @@ import Layout from '../layouts/Layout.astro';
         <!-- 中学生以上対象コース -->
         <div class="lesson-card">
           <div class="lesson-card-header">
-            <h2 class="lesson-card-title">中学生以上対象コース</h2>
+            <div class="lesson-title-group">
+              <div class="dog-tag"><span>中学</span></div>
+              <h2 class="lesson-card-title">中学生以上対象コース</h2>
+            </div>
             <p class="lesson-card-desc">部活動や学業で忙しい方向けのコース</p>
+            <p class="lesson-card-detail">部活や定期テストなど、忙しいスケジュールに合わせてレッスン回数を選べます。音楽を続けたいけれど通うのが難しいという方も、無理なく長く続けられるように設計されたコースです。</p>
           </div>
-          <p class="lesson-card-detail">部活や定期テストなど、忙しいスケジュールに合わせてレッスン回数を選べます。音楽を続けたいけれど通うのが難しいという方も、無理なく長く続けられるように設計されたコースです。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間34回（発表会含む）</span>
@@ -60,10 +66,13 @@ import Layout from '../layouts/Layout.astro';
         <!-- 知育プラスコース -->
         <div class="lesson-card">
           <div class="lesson-card-header">
-            <h2 class="lesson-card-title">知育プラスコース</h2>
+            <div class="lesson-title-group">
+              <div class="dog-tag"><span>知育</span></div>
+              <h2 class="lesson-card-title">知育プラスコース</h2>
+            </div>
             <p class="lesson-card-desc">松田知育ピアノメソッドを取り入れた<br>3歳前後の幼児さん向けのコース</p>
+            <p class="lesson-card-detail">音感・リズム感・集中力を楽しみながら育てる松田知育ピアノメソッドを採用。ピアノを通じてお子さまの心と知性の成長をやさしくサポートします。親子で一緒に音楽の楽しさを体験できます。</p>
           </div>
-          <p class="lesson-card-detail">音感・リズム感・集中力を楽しみながら育てる松田知育ピアノメソッドを採用。ピアノを通じてお子さまの心と知性の成長をやさしくサポートします。親子で一緒に音楽の楽しさを体験できます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">月2回</span>
@@ -75,10 +84,13 @@ import Layout from '../layouts/Layout.astro';
         <!-- 大人向け単発コース -->
         <div class="lesson-card">
           <div class="lesson-card-header">
-            <h2 class="lesson-card-title">大人向け単発コース</h2>
+            <div class="lesson-title-group">
+              <div class="dog-tag"><span>単発</span></div>
+              <h2 class="lesson-card-title">大人向け単発コース</h2>
+            </div>
             <p class="lesson-card-desc">1曲だけでも弾いてみたい、趣味を広げたいなど<br>マイペースに進めたいコース</p>
+            <p class="lesson-card-detail">「あの曲を弾いてみたい」という一つの目標から気軽に始められます。定期的な通学が難しい方や、まずは体験してみたい方にもぴったりです。お好きなタイミングでご予約いただけます。</p>
           </div>
-          <p class="lesson-card-detail">「あの曲を弾いてみたい」という一つの目標から気軽に始められます。定期的な通学が難しい方や、まずは体験してみたい方にもぴったりです。お好きなタイミングでご予約いただけます。</p>
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">1回</span>
@@ -168,12 +180,48 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 12px;
     border: 1px solid var(--color-border);
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 
   .lesson-card-header {
     background: #fff;
     padding: 20px 24px;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .lesson-title-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  /* ドッグタグ */
+  .dog-tag {
+    flex-shrink: 0;
+    margin-left: -24px;
+    width: 52px;
+    height: 34px;
+    background-image: url('/images/image-bg-pop.png');
+    background-size: 800%;
+    background-repeat: no-repeat;
+    border-radius: 0 17px 17px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lesson-card:nth-child(1) .dog-tag { background-position: 10% 20%; }
+  .lesson-card:nth-child(2) .dog-tag { background-position: 60% 10%; }
+  .lesson-card:nth-child(3) .dog-tag { background-position: 30% 75%; }
+  .lesson-card:nth-child(4) .dog-tag { background-position: 80% 50%; }
+
+  .dog-tag span {
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 6px rgba(0, 0, 0, 0.3);
   }
 
   .lesson-card-title {
@@ -187,14 +235,13 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.82rem;
     color: var(--color-text-light);
     line-height: 1.6;
+    margin-bottom: 12px;
   }
 
   .lesson-card-detail {
     font-size: 0.85rem;
     color: var(--color-text-light);
     line-height: 1.8;
-    padding: 14px 24px;
-    border-bottom: 1px solid var(--color-border);
   }
 
   .lesson-price-list {

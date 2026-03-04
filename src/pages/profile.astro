@@ -84,7 +84,15 @@ import Layout from '../layouts/Layout.astro';
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: url('/images/image-bg-pop.png') no-repeat;
+    background-size: 600px 600px;
     flex-shrink: 0;
   }
+
+  .profile-item:nth-child(1)::before { background-position: 0px 0px; }
+  .profile-item:nth-child(2)::before { background-position: -100px -100px; }
+  .profile-item:nth-child(3)::before { background-position: -200px -200px; }
+  .profile-item:nth-child(4)::before { background-position: -300px -100px; }
+  .profile-item:nth-child(5)::before { background-position: -400px 0px; }
+  .profile-item:nth-child(6)::before { background-position: -500px -200px; }
 </style>
