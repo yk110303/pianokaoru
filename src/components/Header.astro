@@ -26,7 +26,7 @@ const navItems = [
               href={item.href}
               class:list={['nav-link', { active: currentPath === item.href }]}
             >
-              {item.label}
+              <span class="nav-link-inner">{item.label}</span>
             </a>
           </li>
         ))}
@@ -140,23 +140,38 @@ const navItems = [
   .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
   }
 
   .menu-toggle-bar {
     display: block;
-    width: 24px;
-    height: 2px;
+    width: 28px;
+    height: 2.5px;
+    border-radius: 2px;
     background: #fff;
-    transition: transform 0.3s, opacity 0.3s, background 0.3s;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, background 0.3s;
   }
 
   .header.scrolled .menu-toggle-bar {
     background: var(--color-text);
+  }
+
+  /* ✕ アニメーション（aria-expanded="true" のとき） */
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
   }
 
   .nav-overlay {
@@ -180,13 +195,16 @@ const navItems = [
     .header.scrolled .header-inner {
       border-radius: 0;
       padding: 0 24px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
     }
 
     .nav-overlay {
       display: block;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 99;
       opacity: 0;
       pointer-events: none;
@@ -200,6 +218,7 @@ const navItems = [
 
     .menu-toggle {
       display: flex;
+      margin-right: -8px;
     }
 
     .nav {
@@ -229,18 +248,43 @@ const navItems = [
     }
 
     .logo {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
 
     .nav-link {
       display: block;
-      padding: 12px 24px;
-      font-size: 0.9rem;
+      padding: 14px 28px;
+      font-size: 1rem;
       color: var(--color-text-light);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--color-accent);
     }
 
     .nav-link::after {
       display: none;
+    }
+
+    .nav-link-inner {
+      position: relative;
+    }
+
+    .nav-link-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: width 0.2s;
+    }
+
+    .nav-link:hover .nav-link-inner::after,
+    .nav-link.active .nav-link-inner::after {
+      width: 100%;
     }
   }
 </style>
@@ -275,6 +319,7 @@ const navItems = [
     overlay?.classList.add('open');
     toggle?.setAttribute('aria-expanded', 'true');
     toggle?.setAttribute('aria-label', 'メニューを閉じる');
+    header?.classList.add('scrolled');
   }
 
   function closeMenu() {
@@ -282,6 +327,7 @@ const navItems = [
     overlay?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
     toggle?.setAttribute('aria-label', 'メニューを開く');
+    updateHeaderState();
   }
 
   toggle?.addEventListener('click', () => {

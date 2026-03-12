@@ -21,14 +21,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-frame">
-        <div class="hero-frame-line" aria-hidden="true"><span class="hero-frame-note">♩</span></div>
-        <p class="hero-sub">Piano School</p>
-        <h1 class="hero-title">
-自分が持つ『宝物』を育てていく
-        </h1>
-        <div class="hero-frame-line" aria-hidden="true"><span class="hero-frame-note">♬</span></div>
-      </div>
+      <h1 class="hero-title">
+        自分が持つ『<span class="hero-title-accent">宝物</span>』を育てていく
+      </h1>
       <p class="hero-text">
         ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
         ピアノを弾く喜びをお届けします。
@@ -76,6 +71,12 @@ import Layout from '../layouts/Layout.astro';
           音を奏でる喜びとともに、必要な力を育て、人生を彩りのある豊かなものにしてくれるピアノは、嬉しいことがいっぱいです。
         </p>
       </div>
+      <img src="/images/classroom01.jpg" alt="" aria-hidden="true" class="message-deco-img" />
+    </div>
+    <div class="message-wave" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+        <path d="M0,36 C320,72 1120,0 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg-dark)" />
+      </svg>
     </div>
   </section>
 
@@ -101,6 +102,12 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
       </div>
+    </div>
+    <img src="/images/classroom03.jpg" alt="" aria-hidden="true" class="section-deco-img section-deco-img--right" />
+    <div class="policy-wave" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+        <path d="M0,36 C360,0 1080,72 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg)" />
+      </svg>
     </div>
   </section>
 
@@ -135,11 +142,23 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
+
+      <div class="performance-grid">
+        <img src="/images/performance01.jpg" alt="発表会の様子" class="performance-img" />
+        <img src="/images/performance02.jpg" alt="発表会の様子" class="performance-img" />
+        <img src="/images/performance03.jpg" alt="発表会の様子" class="performance-img" />
+        <img src="/images/performance04.jpg" alt="発表会の様子" class="performance-img" />
+      </div>
     </div>
   </section>
 
   <!-- Chiku -->
   <section class="section chiku">
+    <div class="chiku-wave chiku-wave--top" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+        <path d="M0,36 C320,0 1120,72 1440,36 L1440,0 L0,0 Z" fill="var(--color-bg)" />
+      </svg>
+    </div>
     <div class="container">
       <div class="chiku-card">
       <h2 class="section-title">松田知育ピアノメソッドコースのご案内</h2>
@@ -169,6 +188,11 @@ import Layout from '../layouts/Layout.astro';
       </div>
       </div>
     </div>
+    <div class="chiku-wave chiku-wave--bottom" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+        <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg)" />
+      </svg>
+    </div>
   </section>
 
   <!-- SNS -->
@@ -178,7 +202,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="section-subtitle">日々のレッスンや教室の様子をお届けしています</p>
       <div class="sns-grid">
         <a href="#" class="sns-card">
-          <div class="sns-icon">
+          <div class="sns-icon sns-icon--instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
@@ -194,7 +218,7 @@ import Layout from '../layouts/Layout.astro';
           </svg>
         </a>
         <a href="#" class="sns-card">
-          <div class="sns-icon">
+          <div class="sns-icon sns-icon--ameba">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
@@ -214,6 +238,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Blur divider: SNS → Access -->
+  <div class="blur-divider" aria-hidden="true"></div>
 
   <!-- Access -->
   <section class="section access">
@@ -248,6 +275,13 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Wave divider: Access → Intro -->
+  <div class="wave-divider wave-divider--to-light">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+      <path d="M0,36 C360,0 1080,72 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg)" />
+    </svg>
+  </div>
 
   <!-- Introduction -->
   <section class="section intro">
@@ -321,11 +355,11 @@ import Layout from '../layouts/Layout.astro';
   /* Hero */
   .hero {
     position: relative;
-    margin: 20px 20px 0;
-    border-radius: 20px;
+    margin: 0;
+    border-radius: 0 0 51% 49% / 0 0 28px 22px;
     overflow: hidden;
-    padding-top: calc(var(--header-height) + 80px);
-    padding-bottom: 80px;
+    padding-top: calc(var(--header-height) + 120px);
+    padding-bottom: 140px;
     text-align: center;
   }
 
@@ -345,7 +379,9 @@ import Layout from '../layouts/Layout.astro';
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgb(48 47 33 / 52%), rgb(48 45 33 / 44%));
+    background:
+      radial-gradient(ellipse at center, transparent 20%, rgb(30 28 18 / 55%) 100%),
+      linear-gradient(rgb(48 47 33 / 52%), rgb(48 45 33 / 44%));
     z-index: 1;
   }
 
@@ -401,6 +437,16 @@ import Layout from '../layouts/Layout.astro';
     color: #fff;
   }
 
+  .hero-title-accent {
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    background-position: 60% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: saturate(0.7) brightness(1.2);
+  }
+
   .hero-text {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
@@ -408,37 +454,130 @@ import Layout from '../layouts/Layout.astro';
     line-height: 2;
   }
 
-  .hero-frame {
-    margin-bottom: 24px;
+  /* Wave divider */
+  .wave-divider {
+    display: block;
+    line-height: 0;
+    margin-bottom: -1px;
   }
 
-  .hero-frame-line {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #fff;
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 20px 0;
+  .wave-divider--to-dark {
+    background: var(--color-bg);
   }
 
-  .hero-frame-line::before,
-  .hero-frame-line::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.6);
+  .wave-divider--to-light {
+    background: var(--color-bg-dark);
   }
 
-  .hero-frame-note {
-    font-size: 1.1rem;
-    flex-shrink: 0;
+  .wave-divider svg {
+    width: 100%;
+    display: block;
   }
-
 
   /* Message */
   .message {
     background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+
+  .message-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    line-height: 0;
+  }
+
+  .message-wave svg {
+    width: 100%;
+    display: block;
+  }
+
+  .message-deco-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 340px;
+    height: 440px;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 1;
+    mask-image:
+      linear-gradient(to bottom, transparent 0%, black 50%),
+      linear-gradient(to left, transparent 0%, black 55%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0%, black 50%),
+      linear-gradient(to left, transparent 0%, black 55%);
+    -webkit-mask-composite: source-in;
+  }
+
+  .section-deco-img {
+    position: absolute;
+    bottom: 0;
+    width: 320px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    opacity: 0.38;
+    pointer-events: none;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, transparent 100%),
+                linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, transparent 100%),
+                        linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+    -webkit-mask-composite: source-in;
+  }
+
+  .section-deco-img--left {
+    left: 0;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%),
+                linear-gradient(to right, black 0%, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%),
+                        linear-gradient(to right, black 0%, black 60%, transparent 100%);
+  }
+
+  .section-deco-img--right {
+    right: 0;
+    z-index: 2;
+    mask-image:
+      linear-gradient(to bottom, transparent 0%, black 50%),
+      linear-gradient(to right, transparent 0%, black 55%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0%, black 50%),
+      linear-gradient(to right, transparent 0%, black 55%);
+    -webkit-mask-composite: source-in;
+  }
+
+  .policy-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    line-height: 0;
+  }
+
+  .policy-wave svg {
+    width: 100%;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .section-deco-img {
+      width: 160px;
+      height: 220px;
+      opacity: 0.12;
+    }
+
+    .message-deco-img {
+      width: 180px;
+      height: 240px;
+    }
   }
 
   .message-body {
@@ -468,6 +607,14 @@ import Layout from '../layouts/Layout.astro';
   /* Policy */
   .policy {
     background: var(--color-bg-dark);
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+  }
+
+  .policy .container {
+    position: relative;
+    z-index: 2;
   }
 
   .policy-body {
@@ -524,6 +671,14 @@ import Layout from '../layouts/Layout.astro';
   /* Commitment */
   .commitment {
     background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+  }
+
+  .commitment .container {
+    position: relative;
+    z-index: 2;
   }
 
   .commitment-list {
@@ -583,15 +738,62 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 0;
   }
 
+  .performance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 48px auto 0;
+  }
+
+  .performance-img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .performance-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 36px;
+    }
+  }
+
   /* Chiku */
   .chiku {
     position: relative;
     overflow: hidden;
-    margin: 0 20px 20px;
-    border-radius: 20px;
+    margin: 0;
+    border-radius: 0;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
-  .chiku::before {
+  .chiku-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    line-height: 0;
+  }
+
+  .chiku-wave--top {
+    top: 0;
+  }
+
+  .chiku-wave--bottom {
+    bottom: 0;
+  }
+
+  .chiku-wave svg {
+    width: 100%;
+    display: block;
+  }
+
+  .chiku::before {  
     content: '';
     position: absolute;
     inset: -160px -160px -320px -160px;
@@ -618,7 +820,7 @@ import Layout from '../layouts/Layout.astro';
     max-width: 900px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 16px;
+    border-radius: 62% 38% 44% 56% / 56% 62% 38% 44%;
     padding: 48px 56px;
   }
 
@@ -631,7 +833,7 @@ import Layout from '../layouts/Layout.astro';
     width: 100%;
     display: block;
     object-fit: cover;
-    max-height: 300px;
+    max-height: 600px;
   }
 
   .chiku-body {
@@ -692,11 +894,19 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
     width: 48px;
     height: 48px;
-    background: var(--color-bg-dark);
+    background: var(--color-bg-dark) center / cover no-repeat;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .sns-icon--instagram {
+    background-image: url('/images/sns-instagram-icon-bg.png');
+  }
+
+  .sns-icon--ameba {
+    background-image: url('/images/sns-ameba-icon-bg.png');
   }
 
   .sns-info {
@@ -723,6 +933,20 @@ import Layout from '../layouts/Layout.astro';
 
   .sns-card:hover .sns-arrow {
     opacity: 1;
+  }
+
+  /* Blur divider */
+  .blur-divider {
+    height: 80px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    pointer-events: none;
   }
 
   /* Access */
@@ -797,6 +1021,17 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
     font-size: 0.88rem;
     color: var(--color-text-light);
+  }
+
+  .access-contact a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .access-contact a:hover {
+    color: var(--color-accent-hover);
   }
 
   /* Intro */
@@ -905,8 +1140,8 @@ import Layout from '../layouts/Layout.astro';
 
   @media (max-width: 768px) {
     .chiku {
-      margin: 0 12px;
-      border-radius: 16px;
+      margin: 0;
+      border-radius: 0;
     }
 
     .chiku-card {
@@ -914,19 +1149,21 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .hero {
-      margin: 12px 12px 0;
-      border-radius: 16px;
-      padding-top: calc(var(--header-height) + 48px);
-      padding-bottom: 56px;
+      margin: 0;
+      border-radius: 0 0 51% 49% / 0 0 22px 18px;
+      padding-top: calc(var(--header-height) + 72px);
+      padding-bottom: 110px;
     }
 
     .hero-title {
-      font-size: 1.8rem;
+      font-size: 2.1rem;
     }
 
-    .hero-frame-line {
-      max-width: 280px;
+    .hero-text {
+      font-size: 1rem;
+      margin-bottom: 104px;
     }
+
 
 
     .philosophy-item {

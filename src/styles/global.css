@@ -59,7 +59,7 @@ a:hover {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 24px;
 }
 
 .section {
@@ -172,7 +172,7 @@ a:hover {
   }
 
   .container {
-    padding: 0 24px;
+    padding: 48px 24px;
   }
 }
 

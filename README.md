@@ -134,9 +134,3 @@ terraform/
 public/
   images/                 # 画像ファイル
 ```
-
-## TODO
-
-- [ ] LINE QR コード画像・URL の設定（`contact.astro`）
-- [ ] Instagram / Ameba Blog の URL 設定（`index.astro`）
-- [ ] SES 本番アクセス申請
