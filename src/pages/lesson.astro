@@ -14,13 +14,13 @@ import Layout from '../layouts/Layout.astro';
   <!-- Lesson -->
   <section class="section lesson">
     <div class="container">
-      <div class="lesson-schedule">
+      <div class="lesson-schedule" data-fade>
         <span class="schedule-text">レッスン曜日：月曜日〜木曜日&ensp;15:00〜19:00</span>
       </div>
 
       <div class="lesson-grid">
         <!-- 通常レッスンコース -->
-        <div class="lesson-card">
+        <div class="lesson-card" data-fade>
           <div class="lesson-card-header">
             <div class="lesson-title-group">
               <div class="dog-tag"><span>通常</span></div>
@@ -43,7 +43,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 中学生以上対象コース -->
-        <div class="lesson-card">
+        <div class="lesson-card" data-fade style="transition-delay:80ms">
           <div class="lesson-card-header">
             <div class="lesson-title-group">
               <div class="dog-tag"><span>中学</span></div>
@@ -68,7 +68,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 知育プラスコース -->
-        <div class="lesson-card">
+        <div class="lesson-card" data-fade style="transition-delay:160ms">
           <div class="lesson-card-header">
             <div class="lesson-title-group">
               <div class="dog-tag"><span>知育</span></div>
@@ -90,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- 大人向け単発コース -->
-        <div class="lesson-card">
+        <div class="lesson-card" data-fade style="transition-delay:240ms">
           <div class="lesson-card-header">
             <div class="lesson-title-group">
               <div class="dog-tag"><span>単発</span></div>
@@ -113,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <p class="lesson-note">
+      <p class="lesson-note" data-fade>
         ※ 通常コース・中学生以上対象コースで40分レッスンをご希望の場合は、各料金にプラス¥1,500となります。
       </p>
     </div>

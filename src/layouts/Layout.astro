@@ -43,6 +43,22 @@ const {
         const y = Math.floor(Math.random() * 100);
         el.style.backgroundPosition = `${x}% ${y}%`;
       });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('.section-title, [data-fade]').forEach((el) => {
+        observer.observe(el);
+      });
     </script>
   </body>
 </html>

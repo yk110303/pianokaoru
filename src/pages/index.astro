@@ -43,10 +43,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- Message -->
   <section class="section message">
     <div class="container">
-      <h2 class="section-title">メッセージ</h2>
-      <p class="section-subtitle">Message</p>
+      <h2 class="section-title" data-fade>メッセージ</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Message</p>
 
-      <div class="message-body">
+      <div class="message-body" data-fade style="transition-delay:160ms">
         <p class="message-lead">
           一度身につけたスキルは一生の宝物になります。<br>
           『宝物』を私と一緒に育てていきませんか。
@@ -83,10 +83,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- Policy -->
   <section class="section policy">
     <div class="container">
-      <h2 class="section-title">レッスン方針</h2>
-      <p class="section-subtitle">Policy</p>
+      <h2 class="section-title" data-fade>レッスン方針</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Policy</p>
 
-      <div class="policy-body">
+      <div class="policy-body" data-fade style="transition-delay:160ms">
         <p class="policy-text">
           目標を持って取り組むことが大切だと考えています。<br>
           教材1つ1つを終えることを目標にすることもよいと思います。<br>
@@ -114,11 +114,11 @@ import Layout from '../layouts/Layout.astro';
   <!-- Commitment -->
   <section class="section commitment">
     <div class="container">
-      <h2 class="section-title">講師のこだわり</h2>
-      <p class="section-subtitle">Teacher's Commitment</p>
+      <h2 class="section-title" data-fade>講師のこだわり</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Teacher's Commitment</p>
 
       <div class="commitment-list">
-        <div class="commitment-item">
+        <div class="commitment-item" data-fade style="transition-delay:160ms">
           <span class="commitment-num">01</span>
           <div class="commitment-body">
             <h3 class="commitment-title">レッスン時間について</h3>
@@ -128,7 +128,7 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
         </div>
-        <div class="commitment-item">
+        <div class="commitment-item" data-fade style="transition-delay:240ms">
           <span class="commitment-num">02</span>
           <div class="commitment-body">
             <h3 class="commitment-title">レッスン料金について</h3>
@@ -143,7 +143,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="performance-grid">
+      <div class="performance-grid" data-fade>
         <img src="/images/performance01.jpg" alt="発表会の様子" class="performance-img" />
         <img src="/images/performance02.jpg" alt="発表会の様子" class="performance-img" />
         <img src="/images/performance03.jpg" alt="発表会の様子" class="performance-img" />
@@ -161,13 +161,13 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="container">
       <div class="chiku-card">
-      <h2 class="section-title">松田知育ピアノメソッドコースのご案内</h2>
-      <p class="section-subtitle">Chiku Piano Method</p>
-      <div class="chiku-img-wrap">
+      <h2 class="section-title" data-fade>松田知育ピアノメソッドコースのご案内</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Chiku Piano Method</p>
+      <div class="chiku-img-wrap" data-fade style="transition-delay:160ms">
         <img class="chiku-img" src="/images/tiiku01.jpg" alt="松田知育ピアノメソッド" />
       </div>
 
-      <div class="chiku-body">
+      <div class="chiku-body" data-fade style="transition-delay:240ms">
         <p class="chiku-text">
           「ピアノを弾く」為にはある程度の理解力や指の発達などが必要となります。<br>
           いきなりピアノレッスンを始めてしまうと、2〜3歳のお子様は「難しい」と感じてしまうことも。
@@ -198,10 +198,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- SNS -->
   <section class="section sns">
     <div class="container">
-      <h2 class="section-title">SNS</h2>
-      <p class="section-subtitle">日々のレッスンや教室の様子をお届けしています</p>
+      <h2 class="section-title" data-fade>SNS</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">日々のレッスンや教室の様子をお届けしています</p>
       <div class="sns-grid">
-        <a href="#" class="sns-card">
+        <a href="#" class="sns-card" data-fade style="transition-delay:160ms">
           <div class="sns-icon sns-icon--instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -217,7 +217,7 @@ import Layout from '../layouts/Layout.astro';
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
-        <a href="#" class="sns-card">
+        <a href="#" class="sns-card" data-fade style="transition-delay:240ms">
           <div class="sns-icon sns-icon--ameba">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -245,9 +245,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- Access -->
   <section class="section access">
     <div class="container">
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">Access</p>
-      <div class="access-inner">
+      <h2 class="section-title" data-fade>アクセス</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Access</p>
+      <div class="access-inner" data-fade style="transition-delay:160ms">
         <dl class="access-list">
           <div class="access-item">
             <dt class="access-label">
@@ -286,8 +286,8 @@ import Layout from '../layouts/Layout.astro';
   <!-- Introduction -->
   <section class="section intro">
     <div class="container">
-      <div class="intro-content">
-        <h2 class="section-title">ピアノを始めてみませんか？</h2>
+      <div class="intro-content" data-fade>
+        <h2 class="section-title" data-fade style="transition-delay:80ms">ピアノを始めてみませんか？</h2>
         <p class="intro-text">
           「ピアノを弾いてみたい」「もう一度ピアノに触れたい」——<br>
           そんな気持ちを大切に、渡部かおるピアノ教室では楽しく学べるレッスンをお届けしています。
