@@ -187,6 +187,11 @@ a:hover {
     font-size: 1.3rem;
   }
 
+  .section-title::before,
+  .section-title::after {
+    display: none;
+  }
+
   .container {
     padding: 48px 24px;
   }

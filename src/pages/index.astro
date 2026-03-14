@@ -29,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-slide" style="background-image:url('/images/performance04.jpg')"></div>
     <div class="container hero-inner">
       <h1 class="hero-title">
-        自分が持つ『<span class="hero-title-accent">宝物</span>』を育てていく
+        自分が持つ『<span class="hero-title-accent">宝物</span>』を<br class="sp-only" />育てていく
       </h1>
       <p class="hero-text">
         ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
@@ -168,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="container">
       <div class="chiku-card">
-      <h2 class="section-title" data-fade>松田知育ピアノメソッドコースのご案内</h2>
+      <h2 class="section-title" data-fade>松田知育ピアノメソッドコースの<br class="sp-only" />ご案内</h2>
       <p class="section-subtitle" data-fade style="transition-delay:80ms">Chiku Piano Method</p>
       <div class="chiku-img-wrap" data-fade style="transition-delay:160ms">
         <img class="chiku-img" src="/images/tiiku01.jpg" alt="松田知育ピアノメソッド" />
@@ -195,11 +195,6 @@ import Layout from '../layouts/Layout.astro';
       </div>
       </div>
     </div>
-    <div class="chiku-wave chiku-wave--bottom" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
-        <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg)" />
-      </svg>
-    </div>
   </section>
 
   <!-- SNS -->
@@ -224,7 +219,7 @@ import Layout from '../layouts/Layout.astro';
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
-        <a href="#" class="sns-card" data-fade style="transition-delay:240ms">
+        <a href="#" class="sns-card" data-fade style="transition-delay:160ms">
           <div class="sns-icon sns-icon--ameba">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -294,7 +289,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="section intro">
     <div class="container">
       <div class="intro-content" data-fade>
-        <h2 class="section-title" data-fade style="transition-delay:80ms">ピアノを始めてみませんか？</h2>
+        <h2 class="section-title intro-title" data-fade style="transition-delay:80ms"><span class="intro-bracket">「</span>ピアノを始めてみませんか？<span class="intro-bracket">」</span></h2>
         <p class="intro-text">
           「ピアノを弾いてみたい」「もう一度ピアノに触れたい」——<br>
           そんな気持ちを大切に、渡部かおるピアノ教室では楽しく学べるレッスンをお届けしています。
@@ -326,7 +321,6 @@ import Layout from '../layouts/Layout.astro';
 
   setInterval(() => {
     const prev = currentSlide;
-    // スライド切り替え時にトランスフォームを固定してスナップを防ぐ
     const frozen = getComputedStyle(slides[prev]).transform;
     slides[prev].style.transform = frozen;
     slides[prev].classList.remove('active');
@@ -422,6 +416,7 @@ import Layout from '../layouts/Layout.astro';
     position: relative;
     z-index: 2;
     animation: heroTextIn 0.9s ease 0.4s both;
+    padding-bottom: 100px;
   }
 
   @keyframes heroTextIn {
@@ -438,7 +433,6 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* text-bg-pop.png をテキストに適用する共通スタイル */
-  .hero-sub,
   .commitment-num {
     background-image: var(--text-bg-pop);
     background-size: 800% 800%;
@@ -823,10 +817,6 @@ import Layout from '../layouts/Layout.astro';
     top: 0;
   }
 
-  .chiku-wave--bottom {
-    bottom: 0;
-  }
-
   .chiku-wave svg {
     width: 100%;
     display: block;
@@ -846,7 +836,11 @@ import Layout from '../layouts/Layout.astro';
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.4);
+    background:
+      linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.4) 60%,
+        #f5f0eb 100%);
     z-index: 0;
   }
 
@@ -897,7 +891,7 @@ import Layout from '../layouts/Layout.astro';
   /* SNS */
   .sns {
     background:
-      linear-gradient(rgba(254, 252, 253, 0.65), rgba(254, 252, 253, 0.65)),
+      linear-gradient(to bottom, #f5f0eb 0%, rgba(245, 240, 235, 0) 30%),
       url('/images/sns-bg.png') center bottom / cover no-repeat var(--color-bg-dark);
     padding: 80px 0 160px;
   }
@@ -1073,6 +1067,27 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-accent-hover);
   }
 
+  /* Intro title */
+  .intro-title {
+    margin-bottom: 40px;
+    gap: 0;
+  }
+
+  .intro-title::before,
+  .intro-title::after {
+    display: none;
+  }
+
+  .intro-bracket {
+    background-image: var(--text-bg-pop);
+    background-size: 800% 800%;
+    background-position: 40% 60%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.6em;
+  }
+
   /* Intro */
   .intro {
     background: #fff;
@@ -1204,15 +1219,6 @@ import Layout from '../layouts/Layout.astro';
     }
 
 
-
-    .philosophy-item {
-      gap: 24px;
-    }
-
-    .philosophy-num {
-      font-size: 2rem;
-      min-width: 40px;
-    }
 
     .commitment-item {
       gap: 24px;
