@@ -20,6 +20,13 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-slide" style="background-image:url('/images/classroom01.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/classroom02.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/classroom03.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/performance01.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/performance02.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/performance03.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/performance04.jpg')"></div>
     <div class="container hero-inner">
       <h1 class="hero-title">
         自分が持つ『<span class="hero-title-accent">宝物</span>』を育てていく
@@ -311,9 +318,26 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  // パララックス
+  // スライドショー
+  const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
+  let currentSlide = 0;
+
+  slides[0].classList.add('active');
+
+  setInterval(() => {
+    const prev = currentSlide;
+    // スライド切り替え時にトランスフォームを固定してスナップを防ぐ
+    const frozen = getComputedStyle(slides[prev]).transform;
+    slides[prev].style.transform = frozen;
+    slides[prev].classList.remove('active');
+    setTimeout(() => { slides[prev].style.transform = ''; }, 1300);
+
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+
+  // パララックス（chiku のみ）
   const parallaxEls = [
-    document.querySelector('.hero'),
     document.querySelector('.chiku'),
   ].filter(Boolean) as HTMLElement[];
 
@@ -363,16 +387,25 @@ import Layout from '../layouts/Layout.astro';
     text-align: center;
   }
 
-  .hero::before {
-    content: '';
+  /* スライドショー */
+  .hero-slide {
     position: absolute;
-    top: -15%;
-    right: -15%;
-    bottom: -30%;
-    left: -15%;
-    background: url('/images/classroom02.jpg') center / cover no-repeat;
-    transform: translateY(var(--parallax-y, 0px));
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
     z-index: 0;
+    transition: opacity 1.2s ease;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    animation: kenburns-out 5s ease-out forwards;
+  }
+
+  @keyframes kenburns-out {
+    from { transform: scale(1.1); }
+    to   { transform: scale(1.0); }
   }
 
   .hero::after {
@@ -388,6 +421,12 @@ import Layout from '../layouts/Layout.astro';
   .hero-inner {
     position: relative;
     z-index: 2;
+    animation: heroTextIn 0.9s ease 0.4s both;
+  }
+
+  @keyframes heroTextIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .hero-buttons,
@@ -820,7 +859,7 @@ import Layout from '../layouts/Layout.astro';
     max-width: 900px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 62% 38% 44% 56% / 56% 62% 38% 44%;
+    border-radius: 10px;
     padding: 48px 56px;
   }
 
