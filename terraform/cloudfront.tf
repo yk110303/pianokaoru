@@ -35,6 +35,11 @@ resource "aws_cloudfront_distribution" "site" {
     cached_methods         = ["GET", "HEAD"]
     compress               = true
     cache_policy_id        = data.aws_cloudfront_cache_policy.caching_optimized.id
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.basic_auth.arn
+    }
   }
 
   # 404 は Astro のデフォルト 404.html にルーティング
