@@ -11,7 +11,7 @@
  * 2. 環境変数の設定
  *    - TO_EMAIL: 受信先メールアドレス
  *    - FROM_EMAIL: 送信元メールアドレス（SESで検証済みのもの）
- *    - ALLOWED_ORIGIN: CORSで許可するオリジン（例: https://pianokaori.com）
+ *    - ALLOWED_ORIGIN: CORSで許可するオリジン（例: https://pianokaoru.com）
  *
  * 3. IAMロールにSES送信権限を付与
  *    - ses:SendEmail アクションを許可するポリシーをアタッチ
@@ -82,7 +82,7 @@ export async function handler(event) {
   const { name, email, phone, message } = body;
 
   const emailBody = [
-    `【pianokaori お問い合わせ】`,
+    `【pianokaoru お問い合わせ】`,
     ``,
     `お名前: ${name}`,
     `メールアドレス: ${email}`,

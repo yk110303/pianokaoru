@@ -176,15 +176,17 @@ a:hover {
 
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.6;
   }
 
   .section {
-    padding: 56px 0;
+    padding: 44px 0;
   }
 
   .section-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
   .section-title::before,
@@ -192,8 +194,12 @@ a:hover {
     display: none;
   }
 
+  .section-subtitle {
+    margin-bottom: 32px;
+  }
+
   .container {
-    padding: 48px 24px;
+    padding: 36px 20px;
   }
 }
 

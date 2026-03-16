@@ -1,6 +1,6 @@
-# pianokaori
+# pianokaoru
 
-ピアノ教室「pianokaori」の公式Webサイト。
+ピアノ教室「pianokaoru」の公式Webサイト。
 
 ## 技術スタック
 
@@ -50,9 +50,9 @@ cp terraform/terraform.tfvars.example terraform/terraform.tfvars
 `terraform/terraform.tfvars` を開き、以下の値を設定します。
 
 ```hcl
-domain_name = "pianokaori.com"          # カスタムドメイン
+domain_name = "pianokaoru.com"          # カスタムドメイン
 to_email    = "your@example.com"        # お問い合わせ受信先
-from_email  = "noreply@pianokaori.com"  # SES 送信元（検証済みアドレス）
+from_email  = "noreply@pianokaoru.com"  # SES 送信元（検証済みアドレス）
 ```
 
 ### 3. インフラの適用
@@ -83,7 +83,7 @@ terraform output api_endpoint
 npm run build
 
 # 2. S3 へアップロード
-aws s3 sync dist/ s3://pianokaori.com/ --delete
+aws s3 sync dist/ s3://pianokaoru.com/ --delete
 
 # 3. CloudFront キャッシュをクリア
 aws cloudfront create-invalidation \
