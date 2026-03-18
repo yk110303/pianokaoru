@@ -20,20 +20,19 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-slide" style="background-image:url('/images/classroom01.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/classroom02.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/classroom03.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/performance01.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/performance02.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/performance03.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/performance04.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch01.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch02.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch03.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch04.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch05.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch06.jpg')"></div>
     <div class="container hero-inner">
       <h1 class="hero-title">
-        自分が持つ『<span class="hero-title-accent">宝物</span>』を<br class="sp-only" />育てていく
+        育てる・奏でる・愉しむ
       </h1>
       <p class="hero-text">
-        ひとりひとりに寄り添ったレッスンで、<br class="sp-only" />
-        ピアノを弾く喜びをお届けします。
+        <br class="sp-only" />
+        一人一人に寄り添った『オンリーワンレッスン』で、ピアノを弾く喜びをお届けします。
       </p>
       <div class="hero-buttons">
         <a href="/contact" class="btn btn-outline">お問い合わせ</a>
@@ -78,7 +77,7 @@ import Layout from '../layouts/Layout.astro';
           音を奏でる喜びとともに、必要な力を育て、人生を彩りのある豊かなものにしてくれるピアノは、嬉しいことがいっぱいです。
         </p>
       </div>
-      <img src="/images/classroom01.jpg" alt="" aria-hidden="true" class="message-deco-img" />
+      <img src="/images/catch01.jpg" alt="" aria-hidden="true" class="message-deco-img" />
     </div>
     <div class="message-wave" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
@@ -107,10 +106,14 @@ import Layout from '../layouts/Layout.astro';
             5回出場毎に継続表彰していただける嬉しい制度もあります。<br>
             人と争うことには抵抗があるけど、日頃の頑張りの証は残していきたい！という方はぜひ積極的に参加することをお勧めします。
           </p>
+          <div class="policy-pickup-imgs">
+            <img src="/images/ptna01.jpg" alt="ピティナ・ステップ" class="policy-pickup-img" />
+            <img src="/images/ptna02.jpg" alt="ピティナ・ステップ" class="policy-pickup-img" />
+          </div>
         </div>
       </div>
     </div>
-    <img src="/images/classroom03.jpg" alt="" aria-hidden="true" class="section-deco-img section-deco-img--right" />
+    <img src="/images/catch03.jpg" alt="" aria-hidden="true" class="section-deco-img section-deco-img--right" />
     <div class="policy-wave" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
         <path d="M0,36 C360,0 1080,72 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg)" />
@@ -149,13 +152,6 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
-
-      <div class="performance-grid" data-fade>
-        <img src="/images/performance01.jpg" alt="発表会の様子" class="performance-img" />
-        <img src="/images/performance02.jpg" alt="発表会の様子" class="performance-img" />
-        <img src="/images/performance03.jpg" alt="発表会の様子" class="performance-img" />
-        <img src="/images/performance04.jpg" alt="発表会の様子" class="performance-img" />
-      </div>
     </div>
   </section>
 
@@ -191,6 +187,10 @@ import Layout from '../layouts/Layout.astro';
         <p class="chiku-text">
           幼児期のお子様への知育面での働きかけはとても大切だと考えています。<br>
           忙しいご家庭では、なかなかお子様に向かい合う時間を取れないかもしれません。
+        </p>
+        <p class="chiku-text">
+          知育には宿題もないので、そんなご家庭の方にもぴったりのコースです。
+        </p>
         </p>
       </div>
       </div>
@@ -468,6 +468,7 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 20px;
     letter-spacing: 0.06em;
     color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
   .hero-title-accent {
@@ -482,9 +483,10 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-text {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 72px;
     line-height: 2;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.5);
   }
 
   /* Wave divider */
@@ -697,7 +699,22 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .policy-pickup-text {
-    margin-bottom: 0;
+    margin-bottom: 16px;
+  }
+
+  .policy-pickup-imgs {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .policy-pickup-img {
+    flex: 1;
+    width: 0;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
   }
 
 
@@ -859,14 +876,16 @@ import Layout from '../layouts/Layout.astro';
 
   .chiku-img-wrap {
     clip-path: inset(0 round 10px);
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
+    max-width: 480px;
   }
 
   .chiku-img {
     width: 100%;
+    height: 320px;
     display: block;
     object-fit: cover;
-    max-height: 600px;
+    object-position: center calc(50% - 60px);
   }
 
   .chiku-body {
