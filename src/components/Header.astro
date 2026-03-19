@@ -71,8 +71,8 @@ const navItems = [
     font-weight: 700;
     letter-spacing: 0.05em;
     background-image:
-      linear-gradient(to top left, transparent 50px, #ffffff 80px),
-      url('/images/image-bg-pop.png');
+      linear-gradient(to bottom right, #ffffff 50%, transparent 60px),
+      url('/images/image-bg-pop.jpg');
     background-size: 100% 100%, 800% 800%;
     background-position: 0 0, 20% 60%;
     -webkit-background-clip: text;
@@ -82,8 +82,8 @@ const navItems = [
 
   .header.scrolled .logo {
     background-image:
-      linear-gradient(to top left, transparent 50px, #38342e 80px),
-      url('/images/image-bg-pop.png');
+      linear-gradient(to bottom right, #38342e 50px, transparent 60px),
+      url('/images/image-bg-pop.jpg');
   }
 
   .nav-list {
@@ -112,7 +112,7 @@ const navItems = [
     left: 0;
     width: 0;
     height: 2px;
-    background-image: url('/images/image-bg-pop.png');
+    background-image: url('/images/image-bg-pop.jpg');
     background-size: 400px 400px;
     transition: width 0.2s;
   }
@@ -274,11 +274,13 @@ const navItems = [
     .nav-link-inner::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -6px;
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--color-accent);
+      background-image: url('/images/image-bg-pop.jpg');
+      background-size: 400px 400px;
+      background-position: -100px -100px;
       transition: width 0.2s;
     }
 

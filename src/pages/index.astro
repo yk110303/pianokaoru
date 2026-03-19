@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
       </h1>
       <p class="hero-text">
         <br class="sp-only" />
-        一人一人に寄り添った『オンリーワンレッスン』で、ピアノを弾く喜びをお届けします。
+        一人一人に寄り添った『オンリーワンレッスン』で、<br class="sp-only" />ピアノを弾く喜びをお届けします。
       </p>
       <div class="hero-buttons">
         <a href="/contact" class="btn btn-outline">お問い合わせ</a>
@@ -77,8 +77,8 @@ import Layout from '../layouts/Layout.astro';
           音を奏でる喜びとともに、必要な力を育て、人生を彩りのある豊かなものにしてくれるピアノは、嬉しいことがいっぱいです。
         </p>
       </div>
-      <img src="/images/catch01.jpg" alt="" aria-hidden="true" class="message-deco-img" />
     </div>
+    <img src="/images/catch01.jpg" alt="" aria-hidden="true" class="message-deco-img" />
     <div class="message-wave" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
         <path d="M0,36 C320,72 1120,0 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg-dark)" />
@@ -444,11 +444,7 @@ import Layout from '../layouts/Layout.astro';
   /* text-bg-emphasize.png をテキストに適用する共通スタイル */
   .message-lead,
   .chiku-lead {
-    background-image: var(--text-bg-emphasize);
-    background-size: 100% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--color-text);
   }
 
   .hero-sub {
@@ -468,7 +464,7 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 20px;
     letter-spacing: 0.06em;
     color: #fff;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 12px rgba(30, 60, 120, 0.6), 0 1px 4px rgba(20, 50, 100, 0.5);
   }
 
   .hero-title-accent {
@@ -514,7 +510,12 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-bg);
     position: relative;
     overflow: hidden;
-    padding-bottom: 40px;
+    padding-bottom: 152px;
+  }
+
+  .message .container {
+    position: relative;
+    z-index: 2;
   }
 
   .message-wave {
@@ -535,11 +536,12 @@ import Layout from '../layouts/Layout.astro';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 340px;
-    height: 440px;
+    width: 600px;
+    height: 520px;
     object-fit: cover;
     pointer-events: none;
     z-index: 1;
+    opacity: 0.4;
     mask-image:
       linear-gradient(to bottom, transparent 0%, black 50%),
       linear-gradient(to left, transparent 0%, black 55%);
@@ -553,8 +555,8 @@ import Layout from '../layouts/Layout.astro';
   .section-deco-img {
     position: absolute;
     bottom: 0;
-    width: 320px;
-    height: 420px;
+    width: 600px;
+    height: 520px;
     object-fit: cover;
     border-radius: 12px 12px 0 0;
     opacity: 0.38;
@@ -604,20 +606,26 @@ import Layout from '../layouts/Layout.astro';
 
   @media (max-width: 768px) {
     .section-deco-img {
-      width: 160px;
-      height: 220px;
+      width: 300px;
+      height: 340px;
       opacity: 0.12;
     }
 
     .message-deco-img {
-      width: 180px;
-      height: 240px;
+      width: 300px;
+      height: 340px;
     }
   }
 
   .message-body {
     max-width: 680px;
-    margin: 0 auto;
+    margin: 0 120px 0 auto;
+    text-shadow:
+      0 0 4px rgba(255, 255, 255, 1),
+      0 0 8px rgba(255, 255, 255, 1),
+      0 0 16px rgba(255, 255, 255, 1),
+      0 0 28px rgba(255, 255, 255, 0.95),
+      0 0 44px rgba(255, 255, 255, 0.85);
   }
 
   .message-lead {
@@ -644,12 +652,13 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-bg-dark);
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 152px;
   }
 
   .policy .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   .policy-body {
@@ -723,7 +732,7 @@ import Layout from '../layouts/Layout.astro';
     background: var(--color-bg);
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 80px;
   }
 
   .commitment .container {
@@ -875,7 +884,8 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .chiku-img-wrap {
-    clip-path: inset(0 round 10px);
+    border-radius: 10px;
+    overflow: hidden;
     margin: 0 auto 32px;
     max-width: 480px;
   }
@@ -890,6 +900,7 @@ import Layout from '../layouts/Layout.astro';
 
   .chiku-body {
     margin-top: 0;
+    text-align: center;
   }
 
   .chiku-text {
@@ -908,6 +919,11 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* SNS */
+  .sns .section-subtitle {
+    background-image: none;
+    color: var(--color-text-light);
+  }
+
   .sns {
     background:
       linear-gradient(to bottom, #f5f0eb 0%, rgba(245, 240, 235, 0) 30%),
@@ -953,12 +969,13 @@ import Layout from '../layouts/Layout.astro';
     justify-content: center;
   }
 
-  .sns-icon--instagram {
-    background-image: url('/images/sns-instagram-icon-bg.png');
-  }
-
+  .sns-icon--instagram,
   .sns-icon--ameba {
-    background-image: url('/images/sns-ameba-icon-bg.png');
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+      url('/images/image-bg-pop.jpg');
+    background-size: auto, cover;
+    background-position: center, center;
   }
 
   .sns-info {
@@ -1130,7 +1147,15 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* お問い合わせ系ボタン: テキストに text-bg-pop を適用、ボーダーは薄いグレー */
-  .hero-buttons .btn-outline,
+  .hero-buttons .btn-outline {
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    background-image: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #fff;
+  }
+
   .intro-buttons .btn-outline {
     border-color: var(--color-border);
     background-image: var(--text-bg-pop);
@@ -1212,6 +1237,19 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 768px) {
+    .message {
+      padding-bottom: 116px;
+    }
+
+    .policy {
+      padding-top: 44px;
+      padding-bottom: 116px;
+    }
+
+    .commitment {
+      padding-top: 44px;
+    }
+
     .chiku {
       margin: 0;
       border-radius: 0;
@@ -1261,6 +1299,14 @@ import Layout from '../layouts/Layout.astro';
     .commitment-text {
       font-size: 0.88rem;
       line-height: 1.7;
+    }
+
+    .chiku-img {
+      object-position: center calc(0% - 60px);
+    }
+
+    .chiku-body {
+      text-align: left;
     }
 
     .chiku-text {
