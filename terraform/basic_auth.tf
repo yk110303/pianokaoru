@@ -31,6 +31,16 @@ resource "aws_cloudfront_function" "basic_auth" {
           }
         };
       }
+
+      // S3 REST API は default_root_object がルートのみ有効なため
+      // サブパスの /lesson → /lesson/index.html のようにリライトする
+      var uri = request.uri;
+      if (uri.endsWith('/')) {
+        request.uri = uri + 'index.html';
+      } else if (!uri.includes('.')) {
+        request.uri = uri + '/index.html';
+      }
+
       return request;
     }
   EOT
