@@ -440,20 +440,9 @@ import Layout from '../layouts/Layout.astro';
     color: transparent;
   }
 
-  /* text-bg-emphasize.png をテキストに適用する共通スタイル */
   .message-lead,
   .chiku-lead {
     color: var(--color-text);
-  }
-
-  .hero-sub {
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    background-position: 60% 50%;
-    filter: saturate(0.7) brightness(1.2);
   }
 
   .hero-title {
@@ -464,16 +453,6 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: 0.06em;
     color: #fff;
     text-shadow: 0 2px 12px rgba(30, 60, 120, 0.6), 0 1px 4px rgba(20, 50, 100, 0.5);
-  }
-
-  .hero-title-accent {
-    background-image: var(--text-bg-pop);
-    background-size: 800% 800%;
-    background-position: 60% 50%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: saturate(0.7) brightness(1.2);
   }
 
   .hero-text {
@@ -489,10 +468,6 @@ import Layout from '../layouts/Layout.astro';
     display: block;
     line-height: 0;
     margin-bottom: -1px;
-  }
-
-  .wave-divider--to-dark {
-    background: var(--color-bg);
   }
 
   .wave-divider--to-light {
@@ -566,14 +541,6 @@ import Layout from '../layouts/Layout.astro';
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, transparent 100%),
                         linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
     -webkit-mask-composite: source-in;
-  }
-
-  .section-deco-img--left {
-    left: 0;
-    mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%),
-                linear-gradient(to right, black 0%, black 60%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%),
-                        linear-gradient(to right, black 0%, black 60%, transparent 100%);
   }
 
   .section-deco-img--right {
@@ -794,30 +761,6 @@ import Layout from '../layouts/Layout.astro';
 
   .commitment-text:last-child {
     margin-bottom: 0;
-  }
-
-  .performance-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    max-width: 900px;
-    margin: 48px auto 0;
-  }
-
-  .performance-img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-  }
-
-  @media (max-width: 768px) {
-    .performance-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-top: 36px;
-    }
   }
 
   /* Chiku */
@@ -1054,23 +997,12 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.9rem;
   }
 
-  .access-icon {
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-
   .access-value {
     padding: 20px;
     font-size: 0.9rem;
     color: var(--color-text-light);
     line-height: 1.8;
     background: #fff;
-  }
-
-  .access-note {
-    margin-top: 8px;
-    font-size: 0.82rem;
-    color: var(--color-accent);
   }
 
   .access-routes {
@@ -1249,11 +1181,6 @@ import Layout from '../layouts/Layout.astro';
       padding-top: 44px;
     }
 
-    .chiku {
-      margin: 0;
-      border-radius: 0;
-    }
-
     .chiku-card {
       padding: 32px 24px;
     }
@@ -1358,9 +1285,6 @@ import Layout from '../layouts/Layout.astro';
       display: inline;
     }
 
-    .intro-content {
-      text-align: center;
-    }
   }
 
 </style>
