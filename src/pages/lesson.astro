@@ -39,6 +39,10 @@ import Layout from '../layouts/Layout.astro';
               <span class="lesson-price-label">年間38回（発表会含む）<br><small>月曜日のみ</small></span>
               <span class="lesson-price-value">30分 <strong>¥6,500</strong></span>
             </li>
+            <li class="lesson-price-item lesson-price-option">
+              <span class="lesson-price-label">40分レッスンをご希望の場合</span>
+              <span class="lesson-price-value">各料金 + <strong>¥2,000</strong></span>
+            </li>
           </ul>
         </div>
 
@@ -63,6 +67,10 @@ import Layout from '../layouts/Layout.astro';
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間27回（発表会含む）</span>
               <span class="lesson-price-value">30分 <strong>¥5,000</strong></span>
+            </li>
+            <li class="lesson-price-item lesson-price-option">
+              <span class="lesson-price-label">40分レッスンをご希望の場合</span>
+              <span class="lesson-price-value">各料金 + <strong>¥1,500</strong></span>
             </li>
           </ul>
         </div>
@@ -113,9 +121,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <p class="lesson-note" data-fade>
-        ※ 通常コース・中学生以上対象コースで40分レッスンをご希望の場合は、各料金にプラス¥1,500となります。
-      </p>
+
     </div>
   </section>
 </Layout>
@@ -131,8 +137,14 @@ import Layout from '../layouts/Layout.astro';
     content: '';
     position: absolute;
     inset: 0;
-    background: url('/images/lesson-cache-bg.jpg') center / cover no-repeat;
+    background: url('/images/lesson-cache-bg-sp.jpg') center / cover no-repeat;
     z-index: 0;
+  }
+
+  @media (min-width: 769px) {
+    .page-header::before {
+      background-image: url('/images/lesson-cache-bg-pc.jpg');
+    }
   }
 
   .page-header::after {
@@ -259,7 +271,7 @@ import Layout from '../layouts/Layout.astro';
 
   .lesson-price-list {
     list-style: none;
-    padding: 16px 24px;
+    padding: 16px 12px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -269,7 +281,7 @@ import Layout from '../layouts/Layout.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 12px;
+    padding: 0 12px 12px;
     border-bottom: 1px dashed var(--color-border);
   }
 
@@ -301,11 +313,15 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-accent);
   }
 
-  .lesson-note {
-    font-size: 0.85rem;
-    color: var(--color-text-light);
-    text-align: center;
-    margin-top: 24px;
+  .lesson-price-option {
+    background: #f2f2f2;
+    border-radius: 6px;
+    padding: 8px 12px !important;
+    border-bottom: none !important;
+  }
+
+  .lesson-price-option .lesson-price-label {
+    font-size: 0.82rem;
   }
 
   @media (max-width: 768px) {

@@ -28,11 +28,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-slide" style="background-image:url('/images/catch06.jpg')"></div>
     <div class="container hero-inner">
       <h1 class="hero-title">
-        育てる・奏でる・愉しむ
+        <span class="hero-word hero-word--1">育てる</span><span class="hero-sep hero-sep--1">・</span><span class="hero-word hero-word--2">奏でる</span><span class="hero-sep hero-sep--2">・</span><span class="hero-word hero-word--3">愉しむ</span>
       </h1>
       <p class="hero-text">
         <br class="sp-only" />
-        一人一人に寄り添った『オンリーワンレッスン』で、<br class="sp-only" />ピアノを弾く喜びをお届けします。
+        あなたしか奏られない音色で人生を彩り豊かなものに
       </p>
       <div class="hero-buttons">
         <a href="/contact" class="btn btn-outline">お問い合わせ</a>
@@ -433,14 +433,34 @@ import Layout from '../layouts/Layout.astro';
   .hero-inner {
     position: relative;
     z-index: 2;
-    animation: heroTextIn 0.9s ease 0.4s both;
     padding-bottom: 100px;
   }
 
-  @keyframes heroTextIn {
-    from { opacity: 0; transform: translateY(20px); }
+  @keyframes heroWordDrop {
+    from { opacity: 0; transform: translateY(-24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  @keyframes heroSepFade {
+    from { opacity: 0; transform: scale(0.6); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .hero-word {
+    display: inline-block;
+    animation: heroWordDrop 0.7s ease both;
+  }
+  .hero-word--1 { animation-delay: 0.2s; }
+  .hero-word--2 { animation-delay: 0.7s; }
+  .hero-word--3 { animation-delay: 1.2s; }
+
+  .hero-sep {
+    display: inline-block;
+    animation: heroSepFade 0.5s ease both;
+  }
+  /* 愉しむ(1.2s+0.7s=1.9s)完了後に両方同時 */
+  .hero-sep--1 { animation-delay: 2.1s; }
+  .hero-sep--2 { animation-delay: 2.1s; }
 
   .hero-buttons,
   .intro-buttons {
