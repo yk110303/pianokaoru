@@ -315,36 +315,55 @@ import Layout from '../layouts/Layout.astro';
   // スライドショー
   const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
   let currentSlide = 0;
+  let slideshowTimer: ReturnType<typeof setInterval> | null = null;
 
   slides[0].classList.add('active');
 
-  setInterval(() => {
+  function advanceSlide() {
     const prev = currentSlide;
     const frozen = getComputedStyle(slides[prev]).transform;
     slides[prev].style.transform = frozen;
     slides[prev].classList.remove('active');
     setTimeout(() => { slides[prev].style.transform = ''; }, 1300);
-
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
-  }, 4000);
-
-  // パララックス（chiku のみ）
-  const parallaxEls = [
-    document.querySelector('.chiku'),
-  ].filter(Boolean) as HTMLElement[];
-
-  function updateParallax() {
-    const vh = window.innerHeight;
-    parallaxEls.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > vh) return;
-      el.style.setProperty('--parallax-y', `${rect.top * 0.2}px`);
-    });
   }
 
-  window.addEventListener('scroll', updateParallax, { passive: true });
-  updateParallax();
+  // Hero がビューポート外のときはスライドショーを止めて GPU 負荷を削減
+  const heroEl = document.querySelector('.hero') as HTMLElement;
+  new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        if (!slideshowTimer) slideshowTimer = setInterval(advanceSlide, 4000);
+      } else {
+        if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; }
+      }
+    },
+    { threshold: 0 }
+  ).observe(heroEl);
+
+  // パララックス（chiku のみ）: 可視時だけスクロールリスナーを登録して BoundingRect 読み取りを最小化
+  const chikuEl = document.querySelector('.chiku') as HTMLElement | null;
+
+  if (chikuEl) {
+    let chikuVisible = false;
+
+    function updateParallax() {
+      if (!chikuVisible) return;
+      const rect = chikuEl!.getBoundingClientRect();
+      chikuEl!.style.setProperty('--parallax-y', `${rect.top * 0.2}px`);
+    }
+
+    new IntersectionObserver(
+      ([entry]) => {
+        chikuVisible = entry.isIntersecting;
+        if (chikuVisible) updateParallax();
+      },
+      { threshold: 0 }
+    ).observe(chikuEl);
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+  }
 
   // ローダー
   const loader = document.getElementById('loader');
@@ -815,6 +834,7 @@ import Layout from '../layouts/Layout.astro';
   .chiku .container {
     position: relative;
     z-index: 1;
+    margin-top: 64px;
   }
 
   .chiku-card {
@@ -1169,16 +1189,28 @@ import Layout from '../layouts/Layout.astro';
 
   @media (max-width: 768px) {
     .message {
-      padding-bottom: 116px;
+      padding-bottom: 56px;
+    }
+
+    .message-body {
+      margin: 0 auto;
     }
 
     .policy {
       padding-top: 44px;
-      padding-bottom: 116px;
+      padding-bottom: 56px;
     }
 
     .commitment {
       padding-top: 44px;
+    }
+
+    .chiku {
+      padding-bottom: 0;
+    }
+
+    .chiku .container {
+      margin-top: 0;
     }
 
     .chiku-card {
@@ -1222,6 +1254,14 @@ import Layout from '../layouts/Layout.astro';
       margin-bottom: 20px;
     }
 
+    .policy-pickup-imgs {
+      flex-direction: column;
+    }
+
+    .policy-pickup-img {
+      width: 100%;
+    }
+
     .commitment-text {
       font-size: 0.88rem;
       line-height: 1.7;
@@ -1263,6 +1303,10 @@ import Layout from '../layouts/Layout.astro';
 
     .commitment-text {
       line-height: 1.7;
+    }
+
+    .sns {
+      padding-bottom: 0;
     }
 
     .sns-grid {

@@ -292,25 +292,24 @@ const navItems = [
 </style>
 
 <script>
-  // スクロールでヘッダーの色を切り替え
+  // スクロールでヘッダーの色を切り替え（IntersectionObserver で reflow 回避）
   const header = document.querySelector('.header') as HTMLElement;
   const hero = document.querySelector('.hero') as HTMLElement;
 
-  function updateHeaderState() {
-    if (!hero) {
-      header?.classList.add('scrolled');
-      return;
-    }
-    const heroBottom = hero.getBoundingClientRect().bottom;
-    if (heroBottom <= 0) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
+  if (!hero) {
+    header?.classList.add('scrolled');
+  } else {
+    new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          header?.classList.remove('scrolled');
+        } else {
+          header?.classList.add('scrolled');
+        }
+      },
+      { threshold: 0 }
+    ).observe(hero);
   }
-
-  window.addEventListener('scroll', updateHeaderState, { passive: true });
-  updateHeaderState();
 
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('nav');
