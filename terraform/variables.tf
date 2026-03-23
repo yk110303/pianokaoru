@@ -22,7 +22,15 @@ variable "to_email" {
 }
 
 variable "from_email" {
-  description = "SES で検証済みの送信元メールアドレス"
+  description = "廃止予定: 送信元は noreply@<domain_name> に固定。tfvars から削除可能"
   type        = string
   sensitive   = true
+  default     = ""
+}
+
+variable "bcc_email" {
+  description = "お問い合わせメールの BCC 先アドレス（管理用。空文字列で無効）"
+  type        = string
+  sensitive   = true
+  default     = ""
 }

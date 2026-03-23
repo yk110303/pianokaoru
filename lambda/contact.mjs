@@ -1,31 +1,11 @@
 /**
  * Lambda: お問い合わせフォーム送信処理
  *
- * === AWSコンソールでの設定手順 ===
- *
- * 1. Lambda関数の作成
- *    - ランタイム: Node.js 20.x
- *    - ハンドラ: contact.handler
- *    - このファイルをzipしてアップロード
- *
- * 2. 環境変数の設定
- *    - TO_EMAIL: 受信先メールアドレス
- *    - FROM_EMAIL: 送信元メールアドレス（SESで検証済みのもの）
- *    - ALLOWED_ORIGIN: CORSで許可するオリジン（例: https://pianokaoru.com）
- *
- * 3. IAMロールにSES送信権限を付与
- *    - ses:SendEmail アクションを許可するポリシーをアタッチ
- *
- * 4. SESでメールアドレスを検証
- *    - FROM_EMAIL と TO_EMAIL の両方を SES で検証
- *    - 本番運用時はSESのサンドボックスを解除
- *
- * 5. API Gatewayの設定
- *    - REST API を作成
- *    - POSTメソッドを作成し、この Lambda を統合
- *    - CORSを有効化（OPTIONSメソッド追加）
- *    - デプロイしてエンドポイントURLを取得
- *    - 取得したURLをフロントエンドの API_ENDPOINT に設定
+ * 環境変数:
+ *   TO_EMAIL       - 受信先メールアドレス（教室側）
+ *   FROM_EMAIL     - 送信元メールアドレス（SES で認証済みドメイン: noreply@pianokaoru.com）
+ *   BCC_EMAIL      - BCC 先メールアドレス（管理用。空文字列で無効）
+ *   ALLOWED_ORIGIN - CORS で許可するオリジン
  */
 
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
@@ -80,8 +60,12 @@ export async function handler(event) {
   }
 
   const { name, email, phone, message } = body;
+  const fromEmail = process.env.FROM_EMAIL;
+  const toEmail = process.env.TO_EMAIL;
+  const bccEmail = process.env.BCC_EMAIL;
 
-  const emailBody = [
+  // 教室側への通知メール本文
+  const notifyBody = [
     `【pianokaoru お問い合わせ】`,
     ``,
     `お名前: ${name}`,
@@ -92,15 +76,59 @@ export async function handler(event) {
     message,
   ].join('\n');
 
+  // 送信者への自動返信メール本文
+  const replyBody = [
+    `${name} 様`,
+    ``,
+    `この度はお問い合わせいただきありがとうございます。`,
+    `渡部かおるピアノ教室です。`,
+    ``,
+    `以下の内容でお問い合わせを受け付けいたしました。`,
+    `内容を確認のうえ、折り返しご連絡いたします。`,
+    ``,
+    `─────────────────────`,
+    `お名前: ${name}`,
+    `メールアドレス: ${email}`,
+    `電話番号: ${phone || '未入力'}`,
+    ``,
+    `お問い合わせ内容:`,
+    message,
+    `─────────────────────`,
+    ``,
+    `※このメールは自動送信されています。`,
+    `  このメールへの返信はできませんのでご了承ください。`,
+    ``,
+    `渡部かおるピアノ教室`,
+    `https://pianokaoru.com`,
+  ].join('\n');
+
   try {
+    // 教室側への通知メール送信
+    const destination = {
+      ToAddresses: [toEmail],
+      ...(bccEmail ? { BccAddresses: [bccEmail] } : {}),
+    };
+
     await ses.send(
       new SendEmailCommand({
-        Source: process.env.FROM_EMAIL,
-        Destination: { ToAddresses: [process.env.TO_EMAIL] },
+        Source: fromEmail,
+        Destination: destination,
         ReplyToAddresses: [email],
         Message: {
-          Subject: { Data: `【pianokaori】${name}様からのお問い合わせ`, Charset: 'UTF-8' },
-          Body: { Text: { Data: emailBody, Charset: 'UTF-8' } },
+          Subject: { Data: `【pianokaoru】${name}様からのお問い合わせ`, Charset: 'UTF-8' },
+          Body: { Text: { Data: notifyBody, Charset: 'UTF-8' } },
+        },
+      })
+    );
+
+    // 送信者への自動返信
+    await ses.send(
+      new SendEmailCommand({
+        Source: fromEmail,
+        Destination: { ToAddresses: [email] },
+        Message: {
+          Subject: { Data: `【渡部かおるピアノ教室】お問い合わせを受け付けました`, Charset: 'UTF-8' },
+          Body: { Text: { Data: replyBody, Charset: 'UTF-8' } },
         },
       })
     );

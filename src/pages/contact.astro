@@ -371,8 +371,7 @@ import Layout from '../layouts/Layout.astro';
   const errorEl = document.getElementById('form-error')!;
   const retryBtn = document.getElementById('retry-btn')!;
 
-  // TODO: API GatewayのエンドポイントURLに差し替える
-  const API_ENDPOINT = '';
+  const API_ENDPOINT = 'https://aa5nai9bpc.execute-api.ap-northeast-1.amazonaws.com//contact';
 
   function validateField(field: HTMLInputElement | HTMLTextAreaElement): boolean {
     const errorEl = document.getElementById(`${field.id}-error`);

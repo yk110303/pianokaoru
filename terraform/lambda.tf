@@ -20,7 +20,8 @@ resource "aws_lambda_function" "contact" {
   environment {
     variables = {
       TO_EMAIL       = var.to_email
-      FROM_EMAIL     = var.from_email
+      FROM_EMAIL     = "noreply@${var.domain_name}"
+      BCC_EMAIL      = var.bcc_email
       ALLOWED_ORIGIN = "https://${var.domain_name}"
     }
   }
