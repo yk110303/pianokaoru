@@ -366,11 +366,17 @@ import Layout from '../layouts/Layout.astro';
   }
 
   // ローダー
+  function startHeroAnimation() {
+    const heroInner = document.querySelector('.hero-inner');
+    if (heroInner) heroInner.classList.add('hero-animate');
+  }
+
   const loader = document.getElementById('loader');
   if (!loader) {
-    // do nothing
+    startHeroAnimation();
   } else if (sessionStorage.getItem('home-visited')) {
     loader.classList.add('hidden');
+    startHeroAnimation();
   } else {
     sessionStorage.setItem('home-visited', '1');
     document.body.style.overflow = 'hidden';
@@ -382,6 +388,7 @@ import Layout from '../layouts/Layout.astro';
       loader.addEventListener('transitionend', () => {
         loader.classList.add('hidden');
         document.body.style.overflow = '';
+        startHeroAnimation();
       }, { once: true });
     }, 1200);
   }
@@ -446,21 +453,26 @@ import Layout from '../layouts/Layout.astro';
     to   { opacity: 1; transform: scale(1); }
   }
 
-  .hero-word {
-    display: inline-block;
-    animation: heroWordDrop 0.7s ease both;
-  }
-  .hero-word--1 { animation-delay: 0.2s; }
-  .hero-word--2 { animation-delay: 0.7s; }
-  .hero-word--3 { animation-delay: 1.2s; }
-
+  .hero-word,
   .hero-sep {
     display: inline-block;
-    animation: heroSepFade 0.5s ease both;
+    opacity: 0;
   }
-  /* 愉しむ(1.2s+0.7s=1.9s)完了後に両方同時 */
-  .hero-sep--1 { animation-delay: 2.1s; }
-  .hero-sep--2 { animation-delay: 2.1s; }
+
+
+  /* ローダー完了後に .hero-animate が付与されてから再生 */
+  .hero-animate .hero-word {
+    animation: heroWordDrop 0.7s ease both;
+  }
+  .hero-animate .hero-word--1 { animation-delay: 0s; }
+  .hero-animate .hero-word--2 { animation-delay: 0.5s; }
+  .hero-animate .hero-word--3 { animation-delay: 1.0s; }
+
+  .hero-animate .hero-sep {
+    animation: heroSepFade 0.5s ease both;
+    /* 愉しむ(1.0s+0.7s=1.7s)完了後に両方同時 */
+    animation-delay: 1.9s;
+  }
 
   .hero-buttons,
   .intro-buttons {
