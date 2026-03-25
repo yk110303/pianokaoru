@@ -25,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-slide" style="background-image:url('/images/catch03.jpg')"></div>
     <div class="hero-slide" style="background-image:url('/images/catch04.jpg')"></div>
     <div class="hero-slide" style="background-image:url('/images/catch05.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/images/catch06.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/images/catch06.jpg')" data-img="/images/catch06.jpg" data-img-sp="/images/catch06-sp.jpg"></div>
     <div class="container hero-inner">
       <h1 class="hero-title">
         <span class="hero-word hero-word--1">育てる</span><span class="hero-sep hero-sep--1">・</span><span class="hero-word hero-word--2">奏でる</span><span class="hero-sep hero-sep--2">・</span><span class="hero-word hero-word--3">愉しむ</span>
@@ -317,6 +317,20 @@ import Layout from '../layouts/Layout.astro';
   const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
   let currentSlide = 0;
   let slideshowTimer: ReturnType<typeof setInterval> | null = null;
+
+  // 端末幅に応じてdata-img-spを持つスライドの背景画像を切り替える
+  function updateResponsiveSlides() {
+    const isSp = window.innerWidth < 768;
+    slides.forEach((slide) => {
+      const imgSp = slide.dataset.imgSp;
+      const imgPc = slide.dataset.img;
+      if (imgSp && imgPc) {
+        slide.style.backgroundImage = `url('${isSp ? imgSp : imgPc}')`;
+      }
+    });
+  }
+  updateResponsiveSlides();
+  window.addEventListener('resize', updateResponsiveSlides);
 
   slides[0].classList.add('active');
 
