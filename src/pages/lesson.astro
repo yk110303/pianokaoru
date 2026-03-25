@@ -33,11 +33,11 @@ import Layout from '../layouts/Layout.astro';
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間41回（発表会含む）<br><small>火〜木曜日</small></span>
-              <span class="lesson-price-value">30分 <strong>¥7,000</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">1回30分</span><span class="price-type-text">お月謝</span><strong>¥7,000</strong></span>
             </li>
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間38回（発表会含む）<br><small>月曜日のみ</small></span>
-              <span class="lesson-price-value">30分 <strong>¥6,500</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">1回30分</span><span class="price-type-text">お月謝</span><strong>¥6,500</strong></span>
             </li>
             <li class="lesson-price-item lesson-price-option">
               <span class="lesson-price-label">40分レッスンをご希望の場合</span>
@@ -62,11 +62,11 @@ import Layout from '../layouts/Layout.astro';
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間34回（発表会含む）</span>
-              <span class="lesson-price-value">30分 <strong>¥6,000</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">1回30分</span><span class="price-type-text">お月謝</span><strong>¥6,000</strong></span>
             </li>
             <li class="lesson-price-item">
               <span class="lesson-price-label">年間27回（発表会含む）</span>
-              <span class="lesson-price-value">30分 <strong>¥5,000</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">1回30分</span><span class="price-type-text">お月謝</span><strong>¥5,000</strong></span>
             </li>
             <li class="lesson-price-item lesson-price-option">
               <span class="lesson-price-label">40分レッスンをご希望の場合</span>
@@ -92,7 +92,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">月2回</span>
-              <span class="lesson-price-value"><strong>¥5,000</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">1回30分</span><span class="price-type-text">お月謝</span><strong>¥5,000</strong></span>
             </li>
           </ul>
         </div>
@@ -115,7 +115,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="lesson-price-list">
             <li class="lesson-price-item">
               <span class="lesson-price-label">1回</span>
-              <span class="lesson-price-value"><strong>¥2,500</strong></span>
+              <span class="lesson-price-value"><span class="price-duration-tag">30分</span><strong>¥2,500</strong></span>
             </li>
           </ul>
         </div>
@@ -311,6 +311,24 @@ import Layout from '../layouts/Layout.astro';
   .lesson-price-value strong {
     font-size: 1.1rem;
     color: var(--color-accent);
+  }
+
+  .price-duration-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: var(--color-bg-dark);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 1px 8px;
+    color: var(--color-text-light);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .price-type-text {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-right: 10px;
   }
 
   .lesson-price-option {
