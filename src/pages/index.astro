@@ -30,10 +30,10 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="hero-title">
         <span class="hero-word hero-word--1">育てる</span><span class="hero-sep hero-sep--1">・</span><span class="hero-word hero-word--2">奏でる</span><span class="hero-sep hero-sep--2">・</span><span class="hero-word hero-word--3">愉しむ</span>
       </h1>
-      <p class="hero-text">
-        <br class="sp-only" />
-        あなたしか奏られない音色で人生を彩り豊かなものに
-      </p>
+      <div class="hero-text">
+        <div class="hero-text-line1">あなたしか奏られない音色で人生を彩り豊かなものに</div>
+        一人一人に寄り添った『オンリーワンレッスン』で、<br class="sp-only" />ピアノを弾く喜びをお届けします
+      </div>
       <div class="hero-buttons">
         <a href="/contact" class="btn btn-outline">お問い合わせ</a>
         <a href="/contact#line" class="btn btn-line">
@@ -54,7 +54,8 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="message-body" data-fade style="transition-delay:160ms">
         <p class="message-lead">
-          一度身につけたスキルは一生の宝物になります。
+          一度身につけたスキルは一生の宝物になります。<br>
+          『宝物』を私と一緒に育てていきませんか
         </p>
         <p class="message-text">
           お子様に「習い事を」と考えた時、<br>
@@ -202,7 +203,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="section-title" data-fade>SNS</h2>
       <p class="section-subtitle" data-fade style="transition-delay:80ms">日々のレッスンや教室の様子をお届けしています</p>
       <div class="sns-grid">
-        <a href="https://www.instagram.com/pianokaoru/" class="sns-card" target="_blank" rel="noopener noreferrer" data-fade style="transition-delay:160ms">
+        <a href="https://www.instagram.com/wk._.piano" class="sns-card" target="_blank" rel="noopener noreferrer" data-fade style="transition-delay:160ms">
           <div class="sns-icon sns-icon--instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -500,7 +501,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 2.6rem;
     font-weight: 700;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
     letter-spacing: 0.06em;
     color: #fff;
     text-shadow: 0 2px 12px rgba(30, 60, 120, 0.6), 0 1px 4px rgba(20, 50, 100, 0.5);
@@ -1359,6 +1360,10 @@ import Layout from '../layouts/Layout.astro';
 
     .sp-only {
       display: inline;
+    }
+
+    .hero-text-line1 {
+      margin-bottom: 0.6em;
     }
 
   }
