@@ -1,8 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MusicSchool',
+  name: '渡部かおるピアノ教室',
+  description: '練馬区下石神井のピアノ教室。幼児から大人まで丁寧に指導。松田知育ピアノメソッド認定講師。',
+  url: 'https://pianokaoru.com',
+  image: 'https://pianokaoru.com/og-image.jpg',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: '練馬区下石神井5丁目',
+    addressRegion: '東京都',
+    addressCountry: 'JP',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 35.7434,
+    longitude: 139.6197,
+  },
+};
 ---
 
-<Layout title="渡部かおるピアノ教室" bodyClass="page-home">
+<Layout
+  title="渡部かおるピアノ教室 | 練馬区下石神井のピアノ教室"
+  description="練馬区下石神井のピアノ教室 渡部かおる。幼児から大人まで丁寧に指導。松田知育ピアノメソッド認定講師。体験レッスン受付中。"
+  bodyClass="page-home"
+>
+  <!-- JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <!-- Loader -->
   <script is:inline>
     if (sessionStorage.getItem('home-visited')) {
