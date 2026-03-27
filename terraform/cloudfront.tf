@@ -38,7 +38,7 @@ resource "aws_cloudfront_distribution" "site" {
 
     function_association {
       event_type   = "viewer-request"
-      function_arn = aws_cloudfront_function.basic_auth.arn
+      function_arn = aws_cloudfront_function.url_rewrite.arn
     }
   }
 
