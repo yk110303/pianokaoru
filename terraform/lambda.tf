@@ -13,7 +13,7 @@ resource "aws_lambda_function" "contact" {
   function_name    = "${var.project_name}-contact"
   role             = aws_iam_role.lambda_contact.arn
   handler          = "contact.handler"
-  runtime          = "nodejs20.x"
+  runtime          = "nodejs22.x"
   filename         = data.archive_file.contact.output_path
   source_code_hash = data.archive_file.contact.output_base64sha256
 
