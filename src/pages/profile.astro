@@ -1,8 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: '渡部 薫',
+  jobTitle: 'ピアノ講師',
+  url: 'https://pianokaoru.com/profile/',
+  worksFor: {
+    '@type': 'MusicSchool',
+    name: '渡部かおるピアノ教室',
+    url: 'https://pianokaoru.com',
+  },
+  alumniOf: [
+    { '@type': 'EducationalOrganization', name: '愛知県立明和高校音楽科' },
+    { '@type': 'EducationalOrganization', name: '国立音楽大学音楽学部器楽学科' },
+  ],
+  hasCredential: [
+    { '@type': 'EducationalOccupationalCredential', name: 'PTNA指導会員' },
+    { '@type': 'EducationalOccupationalCredential', name: 'PSTA指導者' },
+    { '@type': 'EducationalOccupationalCredential', name: 'バスティン研究会講習修了' },
+    { '@type': 'EducationalOccupationalCredential', name: '松田知育ピアノメソッド認定講師' },
+  ],
+  sameAs: [
+    'https://www.instagram.com/wk._.piano',
+    'https://ameblo.jp/kabotan0208/',
+  ],
+};
 ---
 
 <Layout title="プロフィール | 渡部かおるピアノ教室" description="渡部かおるピアノ教室の講師プロフィール。国立音楽大学卒業、PTNA指導会員、松田知育ピアノメソッド認定講師。">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">

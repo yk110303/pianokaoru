@@ -7,16 +7,18 @@ interface Props {
   title: string;
   description?: string;
   bodyClass?: string;
+  preloadImage?: string;
 }
 
 const {
   title = '渡部かおるピアノ教室 | 練馬区下石神井・石神井公園のピアノ教室',
   description = '練馬区下石神井・石神井公園のピアノ教室です。導入機より丁寧に指導いたします。松田知育ピアノメソッドをとりいれた2歳半頃からのレッスンも受け付けています。',
   bodyClass,
+  preloadImage,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/og-image.jpg', Astro.site);
+const ogImage = new URL('/images/og-image.jpg', Astro.site);
 ---
 
 <!doctype html>
@@ -33,8 +35,10 @@ const ogImage = new URL('/og-image.jpg', Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="渡部かおるピアノ教室" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

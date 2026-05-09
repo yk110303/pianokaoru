@@ -1,8 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: '渡部かおるピアノ教室 レッスンコース',
+  url: 'https://pianokaoru.com/lesson/',
+  provider: {
+    '@type': 'MusicSchool',
+    name: '渡部かおるピアノ教室',
+    url: 'https://pianokaoru.com',
+  },
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      name: '通常レッスンコース',
+      description: '全ての年齢の方向けのコース。年間41回、1回30分、お月謝¥7,000（火〜木曜日）',
+      priceCurrency: 'JPY',
+      price: '7000',
+    },
+    {
+      '@type': 'Offer',
+      name: '中学生以上対象コース',
+      description: '部活動や学業で忙しい方向けのコース。年間34回、1回30分、お月謝¥6,000',
+      priceCurrency: 'JPY',
+      price: '6000',
+    },
+    {
+      '@type': 'Offer',
+      name: '知育プラスコース',
+      description: '松田知育ピアノメソッドを取り入れた2歳半頃からの幼児さん向けコース。月2回、1回30分、お月謝¥5,000',
+      priceCurrency: 'JPY',
+      price: '5000',
+    },
+    {
+      '@type': 'Offer',
+      name: '大人向け単発コース',
+      description: '自由気ままに習いたい大人の方向けのコース（女性限定）。1回30分¥2,500',
+      priceCurrency: 'JPY',
+      price: '2500',
+    },
+  ],
+};
 ---
 
 <Layout title="レッスン案内 | 渡部かおるピアノ教室" description="渡部かおるピアノ教室のレッスンコース案内。通常・中学生以上・知育プラス・大人向け単発の4コースをご用意しています。">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
