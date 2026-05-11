@@ -280,8 +280,40 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Blur divider: SNS → Access -->
+  <!-- Blur divider: SNS → Area -->
   <div class="blur-divider" aria-hidden="true"></div>
+
+  <!-- Area / 教室のある街 -->
+  <section class="section area">
+    <div class="container">
+      <h2 class="section-title" data-fade>教室のある街</h2>
+      <p class="section-subtitle" data-fade style="transition-delay:80ms">Neighborhood</p>
+      <div class="area-inner" data-fade style="transition-delay:160ms">
+        <div class="area-image">
+          <!-- TODO: 石神井公園や街並みの写真に差し替えてください -->
+          <img src="/images/place.jpg" alt="石神井公園周辺の緑豊かな街並み" loading="lazy" width="480" height="320" />
+        </div>
+        <div class="area-text">
+          <p class="area-lead">
+            石神井公園の豊かな緑と、閑静な住宅街が広がる練馬区下石神井。都心の喧騒から離れた、落ち着いた環境の中に教室を構えています。
+          </p>
+          <p class="area-lead">
+            石神井公園駅からバスでアクセスでき、上井草駅からも徒歩圏内。周辺には公園や文化施設も多く、地域に根ざした温かな雰囲気が広がっています。
+          </p>
+          <p class="area-lead">
+            穏やかな街の空気と自然に囲まれたこの場所で、子どもから大人まで、ゆったりとピアノに向き合っていただけます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider: Area → Access -->
+  <div class="wave-divider wave-divider--to-dark" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none">
+      <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="var(--color-bg-dark)" />
+    </svg>
+  </div>
 
   <!-- Access -->
   <section class="section access">
@@ -1064,6 +1096,50 @@ const jsonLd = {
     pointer-events: none;
   }
 
+  /* Area */
+  .area {
+    background: var(--color-bg);
+  }
+
+  .area-inner {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .area-image {
+    flex: 0 0 45%;
+  }
+
+  .area-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  }
+
+  .area-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .area-lead {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--color-text-light);
+  }
+
+  .wave-divider--to-dark {
+    background: var(--color-bg);
+  }
+
   /* Access */
   .access {
     background: var(--color-bg-dark);
@@ -1395,6 +1471,16 @@ const jsonLd = {
 
     .sns-grid {
       grid-template-columns: 1fr;
+    }
+
+    .area-inner {
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .area-image {
+      flex: none;
+      width: 100%;
     }
 
     .access-item {
