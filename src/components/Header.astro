@@ -12,7 +12,10 @@ const navItems = [
 
 <header class="header">
   <div class="header-inner">
-    <a href="/" class="logo">渡部かおるピアノ教室</a>
+    <a href="/" class="logo">
+      <span class="logo-main">渡部かおるピアノ教室</span>
+      <span class="logo-sub">練馬区下石神井・石神井公園のピアノ教室</span>
+    </a>
     <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
       <span class="menu-toggle-bar"></span>
       <span class="menu-toggle-bar"></span>
@@ -67,6 +70,14 @@ const navItems = [
   }
 
   .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-main {
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -80,10 +91,21 @@ const navItems = [
     color: transparent;
   }
 
-  .header.scrolled .logo {
+  .header.scrolled .logo-main {
     background-image:
       linear-gradient(to bottom right, #38342e 50px, transparent 60px),
       url('/images/image-bg-pop.jpg');
+  }
+
+  .logo-sub {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .header.scrolled .logo-sub {
+    color: var(--color-text-light);
   }
 
   .nav-list {
@@ -247,8 +269,12 @@ const navItems = [
       padding: 8px 0;
     }
 
-    .logo {
-      font-size: 1.15rem;
+    .logo-main {
+      font-size: 1.05rem;
+    }
+
+    .logo-sub {
+      font-size: 0.58rem;
     }
 
     .nav-link {
